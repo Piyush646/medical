@@ -8,15 +8,16 @@
         $phn=$_POST['phn'];
         $ad=$_POST['address'];
         $loc=$_POST['location'];
+        $msg=$_POST['message'];
         $img=upload_image($_FILES);
         if($img!="err")
         {
-        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$website_link/admin/uploads/$img'"; 
+        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$website_link/admin/uploads/$img',message='$msg'"; 
          
         }
         else
         {
-            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc'";
+            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg'";
         } 
         if($conn->query($sql))
                 {
@@ -100,26 +101,30 @@
                                 </div>
                                 <div class="col-sm-6"><br>
                                     <label >Location :</label>
-                                    <input type="text" class="form-control" id="" name="location" value="<?=$about['location']?>">
+                                    <input type="text" class="form-control" id="" name="location"value="<?=$about['location']?>">
                         
                                 </div><br>
-                                
+                                <div class="col-sm-12"><br>
+                                <label>Message from Admin :</label><br>
+                                <textarea  style="width: 100%;height:120px;resize:none"name="message"><?=$about['message']?></textarea>
+                                </div>
                                 <div class="col-sm-12"><br>
                                 <label>Add Logo :</label><br>
                                 <input type="file" class="btn btn-success" name="images"></input>
                                 </div><br><br>
+                                
                                 <div class="row" style="margin-bottom:20px"><br> 
                                 
                                 
                                 
                                     <div class="col-md-4" id="file<?=$counter?>">
-                                        <div class="col-md-8" style="margin-top:20px">
+                                        <div class="col-md-8" style="margin-top:15px">
                                             <a href="<?=$about['logo']?>" target="_blank"><img src="<?=$about['logo']?>" width="100px" height="100px"/></a>
                                         </div>
                                     </div>   
                                 </div>
                                 <div class="col-sm-12"><br>
-                                <center><button type="submit" class="btn btn-primary" name="about">DONE</button></center>
+                                <center><button type="submit" class="btn btn-lg btn-primary" name="about">DONE</button></center>
                                 </div><br>
                                 <?php
                                 }

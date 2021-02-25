@@ -82,7 +82,7 @@
                         {
                             $product_img[]=$row;
                         }
-                         print_r($product_img);
+                         
                     }
                      
                 }else

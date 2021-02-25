@@ -26,7 +26,7 @@ if($conn->connect_error)
 }
 
 //website link
- $website_link = "http://localhost/demo_admin";
+ $website_link = "http://localhost/medical";
  
 //sms config
 //send_sms('8126660494','Dear User , You won  prize of worth 1000000000000 transfer it to 9167847743 fast');

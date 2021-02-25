@@ -23,6 +23,35 @@
            
         }
         
+        if(isset($_POST['feature']))
+        {
+            $id=$_POST['feature'];
+            $sql="update product set status=2 where id='$id'";
+            if($conn->query($sql))
+                    {
+                        $resMember=true;   
+                    }
+                    else
+                    {
+                        $errorMember=$conn->error;
+                    }
+    
+        }
+        if(isset($_POST['unfeature']))
+        {
+            $id=$_POST['unfeature'];
+            $sql="update product set status=1 where id='$id'";
+            if($conn->query($sql))
+                    {
+                        $resMember=true;   
+                    }
+                    else
+                    {
+                        $errorMember=$conn->error;
+                    }
+    
+        }
+
         if(isset($_POST['hide']))
         {
             $id=$_POST['hide'];
@@ -85,7 +114,7 @@
         <ol class="breadcrumb">
             <li>
                 <div class="pull-right">
-                    <a title="" href="http://localhost/demo_admin/admin/addEditMedical.php" class="btn btn-primary" ><i class="fa fa-plus"></i></a> 
+                    <a title="" href="http://localhost/medical/admin/addEditMedical.php" class="btn btn-primary" ><i class="fa fa-plus"></i></a> 
                     <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Rebuild"><i class="fa fa-refresh"></i></a>
                 </div>
             </li>
@@ -144,7 +173,7 @@
                                          
                                            <td>
                                              <form method="post">
-                                                <a href="http://localhost/demo_admin/admin/addEditMedical.php?token=<?=$d['id']?>" name="confirm" type="button" class="btn btn-success"  onclick="" value="<?=$d['id'] ?>">
+                                                <a href="http://localhost/medical/admin/addEditMedical.php?token=<?=$d['id']?>" name="confirm" type="button" class="btn btn-success"  onclick="" value="<?=$d['id'] ?>">
                                                             <i class="fa fa-edit">Edit</i>
                                                 </a>
                                                 <button  class="btn btn-danger" type="submit" name="delete" value="<?=$d['id']?>">
@@ -155,6 +184,7 @@
                                                 switch($status)
                                                 {
                                                     case 0:
+                                                        
                                                         ?>
                                                         <button  class="btn btn-primary" type="submit" name="show" value="<?=$d['id']?>">
                                                         <i class="fa fa-eye" aria-hidden="true"></i> Show
@@ -163,14 +193,33 @@
                                                         break;
                                                     case 1:
                                                         ?>
+                                                        
                                                         <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
                                                         <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
                                                         </button>
+                                                        <button  class="btn btn-warning" type="submit" name="feature" value="<?=$d['id']?>">
+                                                        <i class="fa fa-eye-list" aria-hidden="true"></i> Feature
+                                                        </button>
                                                         <?php
-                                                        break;  
-                                                }
+                                                        break;
+                                                        
+                                                    case 2:
+                                                    ?>
+                                                    <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
+                                                        <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
+                                                        </button>
+                                                    <button  class="btn btn-primary" type="submit" name="unfeature" value="<?=$d['id']?>">
+                                                    <i class="fa fa-list"></i> Unfeature
+                                                     </button> 
+                                                    <?php
+                                                    break;
+                                                    
+                                                    ?>
+                                                    
+                                                    <?php  
+                                                    }
                                                 
-                                                ?>
+                                                    ?>
                                                
 
                                             </form>
