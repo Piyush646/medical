@@ -39,15 +39,21 @@
             </a>
          </li>
          <li>
+            <a href="social_links.php">
+            <i class="fa fa-link" aria-hidden="true"></i> <span>Social Links</span>
+            </a>
+         </li>
+         <li>
             <a href="about.php">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <span>About</span>
             </a>
          </li>
          <li>
-            <a href="social_links.php">
-            <i class="fa fa-link" aria-hidden="true"></i> <span>Social Links</span>
+            <a href="quote.php">
+            <i class="fa fa-quote-left" aria-hidden="true"></i><span>Quote</span>
             </a>
          </li>
+         
           
           <!-- <li>
            <a href="gym_member">

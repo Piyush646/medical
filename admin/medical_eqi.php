@@ -82,7 +82,35 @@
     
         }   
         
-        
+        if(isset($_POST['undo_new']))
+        {
+            $id=$_POST['undo_new'];
+            $sql="update product set new=0 where id='$id'";
+            if($conn->query($sql))
+                    {
+                        $resMember=true;   
+                    }
+                    else
+                    {
+                        $errorMember=$conn->error;
+                    }
+    
+        }
+
+        if(isset($_POST['new']))
+        {
+            $id=$_POST['new'];
+            $sql="update product set new=1 where id='$id'";
+            if($conn->query($sql))
+                    {
+                        $resMember=true;   
+                    }
+                    else
+                    {
+                        $errorMember=$conn->error;
+                    }
+    
+        }
  
     }
         
@@ -193,14 +221,31 @@
                                                         break;
                                                     case 1:
                                                         ?>
-                                                        
                                                         <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
                                                         <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
                                                         </button>
-                                                        <button  class="btn btn-warning" type="submit" name="feature" value="<?=$d['id']?>">
-                                                        <i class="fa fa-eye-list" aria-hidden="true"></i> Feature
+                                                        <button  class="btn btn-info" type="submit" name="feature" value="<?=$d['id']?>">
+                                                        <i class="fa fa-plus-square" aria-hidden="true"></i> Feature
                                                         </button>
                                                         <?php
+                                                        $new=$d['new'];
+                                                        switch($new)
+                                                        {
+                                                            case 1:
+                                                                ?>
+                                                                <button  class="btn btn-warning" type="submit" name="undo_new" value="<?=$d['id']?>">
+                                                                <i class="fa fa-minus-square" aria-hidden="true"></i> Undo New
+                                                                </button>
+                                                                <?php
+                                                                break;
+                                                            case 0:
+                                                                ?>
+                                                                <button  class="btn btn-info" type="submit" name="new" value="<?=$d['id']?>">
+                                                                <i class="fa fa-plus-square" aria-hidden="true"></i> New
+                                                                </button>
+                                                                <?php
+                                                                break;   
+                                                        }
                                                         break;
                                                         
                                                     case 2:
@@ -209,9 +254,27 @@
                                                         <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
                                                         </button>
                                                     <button  class="btn btn-primary" type="submit" name="unfeature" value="<?=$d['id']?>">
-                                                    <i class="fa fa-list"></i> Unfeature
+                                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Unfeature
                                                      </button> 
                                                     <?php
+                                                    $new=$d['new'];
+                                                    switch($new)
+                                                    {
+                                                        case 0:
+                                                            ?>
+                                                            <button  class="btn btn-info" type="submit" name="new" value="<?=$d['id']?>">
+                                                            <i class="fa fa-plus-square" aria-hidden="true"></i> New
+                                                            </button>
+                                                            <?php
+                                                            break;
+                                                            case 1:
+                                                                ?>
+                                                                <button  class="btn btn-warning" type="submit" name="undo_new" value="<?=$d['id']?>">
+                                                                <i class="fa fa-minus-square" aria-hidden="true"></i> Undo New
+                                                                </button>
+                                                                <?php
+                                                                break;
+                                                    }
                                                     break;
                                                     
                                                     ?>
