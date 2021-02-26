@@ -1,4 +1,5 @@
 <!-- footer start -->
+
 <div class="cv-footer cv-footer-two spacer-bottom">
         <div class="container">
             <div class="cv-news-box">
@@ -90,3 +91,4 @@
         </div>
     </div>
     <!-- copyright end -->
+    </div>

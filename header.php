@@ -17,3 +17,14 @@ require_once "lib/core.php";
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
 </head>
+
+<body>
+<!-- preloader start -->
+<div class="cv-ellipsis">
+    <div class="cv-preloader">
+        <div></div>
+    </div>
+</div>
+<!-- preloader end -->
+<!-- main wrapper start -->
+<div class="cv-main-wrapper">
