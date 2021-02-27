@@ -44,6 +44,11 @@
             </a>
          </li>
          <li>
+            <a href="subscribers.php">
+            <i class="fa fa-bell" aria-hidden="true"></i> <span>Subscribers</span>
+            </a>
+         </li>
+         <li>
             <a href="about.php">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <span>About</span>
             </a>

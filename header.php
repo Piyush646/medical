@@ -1,5 +1,11 @@
 <?php
 require_once "lib/core.php";
+$sql = 'select * from web_config';
+if ($res = $conn->query($sql)) {
+  if ($res->num_rows) {
+    $contact = $res->fetch_assoc();
+  }
+}
 ?>
 <!DOCTYPE html>
 

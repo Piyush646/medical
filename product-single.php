@@ -51,60 +51,67 @@ if (isset($_GET['token'])) {
 <div class="cv-product-single spacer-top spacer-bottom">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-sm-10 " style="margin-bottom:15px">
+
                         <div class="cv-pro-thumb-img">
-                            <img src="<?= $product_img[0]['img'] ?>" alt="image" class="img-fluid">
+                            <img src="<?=$product_img[0]['img']?>" alt="image" class="img-fluid">
                         </div>
                     </div>
-                    <div class="col-sm-7">
-                        <div class="cv-prod-content">
-                            <h2 class="cv-price-title"><?= $product['name'] ?></h2>
-                            <p class="cv-pdoduct-price"><del>$170</del><?= $product['price'] ?></p>
-                            <!-- <div class="cv-prod-category">
+                    <!-- <div class="cv-pro-thumb-img">
+                            <img src="" alt="image" class="img-fluid">
+                        </div> -->
+
+                </div>
+                <div class="col-sm-7">
+                    <div class="cv-prod-content">
+                        <h2 class="cv-price-title"><?= $product['name'] ?></h2>
+                        <p class="cv-pdoduct-price"><del>$170</del><?= $product['price'] ?></p>
+                        <!-- <div class="cv-prod-category">
                                     <span>Category :</span>
                                     <a href="#" class="cv-prod-category"> Face Mask</a>,
                                     <a href="#" class="cv-prod-category"> Body Cover</a>
                                 </div> -->
-                            <!-- <p class="cv-rating">
+                        <!-- <p class="cv-rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </p> -->
-                        </div>
-                        <div class="cv-prod-count">
-                            <!-- <div class="cv-cart-quantity">
+                    </div>
+                    <div class="cv-prod-count">
+                        <!-- <div class="cv-cart-quantity">
                                  <button class="cv-sub"></button>
                                 <input type="number" value="1" min="1">
                                 <button class="cv-add"></button> 
                             </div> -->
-                            <a href="tel:34567894567890" class="cv-price-cart">
-                                Call For Quote
-                                <i style="margin-left:0px" class="fa fa-phone" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="cv-prod-text">
-
-                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p> -->
-                        </div>
+                        <a href="tel:34567894567890" class="cv-price-cart">
+                            Call For Quote
+                            <i style="margin-left:0px" class="fa fa-phone" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="cv-shop-tab">
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab" aria-selected="true">description</a>
-                        <!-- <a class="nav-link" data-toggle="tab" href="#cv-pro-review" role="tab" aria-selected="false">Review</a> -->
+                <div class="col-md-12">
+                    <div class="cv-prod-text">
+
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p> -->
                     </div>
-                    <div class="tab-content cv-tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="cv-pro-description">
-                            <p><?= html_entity_decode($product['dis']) ?></p>
-                        </div>
-                        <!-- <div class="tab-pane fade" id="cv-pro-review">
+                </div>
+            </div>
+            <div class="cv-shop-tab">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab" aria-selected="true">description</a>
+                    <!-- <a class="nav-link" data-toggle="tab" href="#cv-pro-review" role="tab" aria-selected="false">Review</a> -->
+                </div>
+                <div class="tab-content cv-tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="cv-pro-description">
+                        <p><?= html_entity_decode($product['dis']) ?></p>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="cv-pro-review">
                                     <div class="cv-blog-comment">
                                         <ul>
                                             <li>
@@ -212,10 +219,10 @@ if (isset($_GET['token'])) {
                                         </form>
                                     </div>
                                 </div> -->
-                    </div>
                 </div>
             </div>
-            <!-- <div class="col-lg-4">
+        </div>
+        <!-- <div class="col-lg-4">
                     <div class="cv-shop-sidebar">
                         <div class="cv-widget cv-search">
                             <h2 class="cv-sidebar-title">Product Search</h2>
@@ -270,8 +277,8 @@ if (isset($_GET['token'])) {
                         </div>
                     </div>
                 </div> -->
-        </div>
     </div>
+</div>
 </div>
 
 <!-- shop end

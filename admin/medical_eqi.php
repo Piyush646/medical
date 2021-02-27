@@ -58,13 +58,14 @@
             $sql="update product set status=0 where id='$id'";
             if($conn->query($sql))
                     {
-                        $resMember=true;   
-                    }
+                        $sql="update product set new=0 where id='$id'";
+                        if($conn->query($sql)){
+                        $resMember=true; }  
                     else
                     {
                         $errorMember=$conn->error;
                     }
-    
+                    } 
         }
     
         if(isset($_POST['show']))

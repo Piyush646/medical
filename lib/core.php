@@ -4,6 +4,7 @@
     require_once 'config.php';   
 
 //check page setting
+
 function check_page($id,$conn)
 {
     $sql="select * from services where link='$id'";
