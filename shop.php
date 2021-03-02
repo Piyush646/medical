@@ -354,7 +354,7 @@ if ($res = $conn->query($sql)) {
         </div>
     </div>
 </div>
-</div> -->
+</div>
 <!-- related product end -->
 <?php
 require_once "footer.php";

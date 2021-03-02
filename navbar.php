@@ -3,12 +3,12 @@
                 <div class="row">
                     <div class="col-md-10">
                         <div class="cv-head-contact">
-                            <h3>Phone: +001 456-789-2591</h3>
+                            <h3>Phone : <?=$contact['phn']?></h3>
                         </div>
                     </div>
                     <div class="col-md-2">
                     <div class="cv-head-contact">
-                            <h3>Email:abc@example.com</h3>
+                            <h3>Email : <?=$contact['email']?></h3>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-3 col-9">
                     <div class="cv-logo">
-                        <a href="index.html"><img src="assets/images/logo.svg" alt="image" class="img-fluid"/></a>
+                        <a href="index.html"><img style ="height:3em; margin-left:30px;" src="<?=$contact['logo']?>" alt="image" class="img-fluid"/></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-3">

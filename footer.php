@@ -1,5 +1,29 @@
+<?php
+require_once "lib/core.php";
+if(isset($_POST['email']))
+{
+    $email=$_POST['email'];
+    $sql="insert into subscribe(email) values ('$email')";
+    if($conn->query($sql)===true)
+    {
+    }
+    else
+    {
+    }
+}
+// $sql="select * from subscribe";
+// if($res=$conn->query($sql))
+// {
+//     if($res->num_rows)
+//     {
+//         while($res->fetch_assoc())
+//         {
+            
+//         }
+//     }
+// }
+?>
 <!-- footer start -->
-
 <div class="cv-footer cv-footer-two spacer-bottom">
         <div class="container">
             <div class="cv-news-box">
@@ -7,14 +31,14 @@
                     <div class="col-md-6">
                         <div class="cv-foot-newsbox">
                             <h2>Subscribe to our newsletter</h2>
-                            <p>Subscibe and get 30% of on every products</p>
+                            <p>Subscibe and get 30% off on every product</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="cv-foot-newsletter">
-                            <form>
-                                <input type="text" placeholder="Enter your email"/>
-                                <button class="cv-btn">subscribe</button>
+                            <form method="post">
+                                <input type="text" name="email" placeholder="Enter your email"/>
+                                <button type="submit" name="subscribe" class="cv-btn">subscribe</button>
                             </form>
                         </div>
                     </div>
@@ -23,9 +47,9 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-foot-box cv-foot-logo">
-                        <img src="assets/images/logo.svg" alt="image" class="img-fluid"/>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation ullamco laboris.</p>
-                        <div class="cv-foot-payment">
+                        <img src="<?=$contact['logo']?>" alt="image" class="img-fluid"/>
+                        <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation ullamco laboris.</p> -->
+                        <div class="cv-foot-payment" style="padding-left:3em;">
                             <a href="javascript:;"><img src="assets/images/pay1.png" alt="image" class="img-fluid"/></a>
                             <a href="javascript:;"><img src="assets/images/pay2.png" alt="image" class="img-fluid"/></a>
                             <a href="javascript:;"><img src="assets/images/pay3.png" alt="image" class="img-fluid"/></a>
@@ -33,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <!-- <div class="col-lg-8 col-md-6">
                     <div class="cv-foot-box cv-foot-links">
                         <h2>Categories</h2>
                         <ul>
@@ -56,13 +80,27 @@
                             <li><a href="javascript.html">Faq</a></li>
                         </ul>
                     </div>
+                </div> -->
+                <div class="col-lg-5 col-md-6" >
+                    <div class="cv-foot-box cv-foot-contact" style="padding-left:15em;">
+                        <h2>Useful Links</h2>
+                        <ul>
+                            <li><a style="margin-left:2.5em"href="http://localhost/medical/index">Home</a></li>
+                            <li><a style="margin-left:2.6em"href="http://localhost/medical/shop">Shop</a></li>
+                            <li><a style="margin-left:2.4em"href="http://localhost/medical/about">About</a></li>
+                            <li><a style="margin-left:1.5em"href="http://localhost/medical/contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="cv-foot-box cv-foot-contact">
+                <div class="col-lg-3 col-md-6" >
+                    <div class="cv-foot-box cv-foot-contact" style="padding-left:3em;">
                         <h2>Contact</h2>
-                        <p><span>Contact : </span>+55 456-789-9651</p>
-                        <p><span>Email : </span>example@medical.com</p>
-                        <p><span>Address : </span>785 LNCT block street, USA</p>
+                        <ul>
+                            <li><p><?=$contact['email']?></p></li>
+                            <li><p><?=$contact['phn']?></p></li>
+                            <li><p><?=$contact['address']?></p></li>
+                        </ul>
                         <ul class="cv-foot-social">
                             <li><a href="javascript:;">
                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z"/></svg>
@@ -75,6 +113,7 @@
                             </a></li>
                         </ul>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -85,7 +124,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>&copy; 2020. All right reserverd by Medical Equipments</p>
+                    <p>&copy; 2021. All right reserverd by Medical Equipments</p>
                 </div>
             </div>
         </div>
