@@ -20,6 +20,7 @@ if (isset($_GET['token'])) {
                     while ($row = $result->fetch_assoc()) {
                         $product_img[] = $row;
                     }
+                    
                 }
             }
         }
@@ -54,11 +55,77 @@ if (isset($_GET['token'])) {
 
             <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-sm-10 " style="margin-bottom:15px">
+                    <div class="col-sm-10 " style="margin-bottom:20px">
 
-                        <div class="cv-pro-thumb-img">
-                            <img src="<?=$product_img[0]['img']?>" alt="image" class="img-fluid">
+                        <?php
+         if(isset($product_img))
+        {
+        ?>
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+
+                            <hr>
+                            <ol class="carousel-indicators" style="margin-bottom: -3px;width: 12vw;margin-left: 42%;color:black">
+
+                                <?php
+                            if(isset($product_img))
+                            {
+                                $i=0;
+                                foreach($product_img as $pop)
+                                {
+                                    $active='';
+                                    if($i==0)
+                                    {
+                                        $active="class='active'";
+                                    }
+                                    ?>
+
+                                <li data-target="#carousel" data-slide-to="<?=$i?>" <?=$active?>
+                                    style="width: 10px;height:10px;border-radius: 50%"></li>
+                                <?php
+                                        $i++;
+                                }
+                            }
+                        ?>
+
+
+                            </ol>
+                            <div class="carousel-inner"  >
+
+                                <?php
+
+                                    $i=0;
+                                    foreach($product_img as $pop)
+                                    { 
+                                        $active='';
+                                        if($i==0)
+                                        {
+                                            $active ="active";
+                                        }
+                        ?>
+                                <div class="carousel-item <?=$active?>">
+                                    <!-- <div class="cv-pro-thumb-img"> -->
+                                        <img src="<?= $pop['img'] ?>" alt="image" class="img-fluid">
+                                    <!-- </div> -->
+                                </div>
+
+                                <?php
+                    $i++;
+                        }
+
+                ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev" style="color:black">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next" style="color:black;margin-right: 6vw;">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
+                        <?php
+         }
+        ?>
                     </div>
                     <!-- <div class="cv-pro-thumb-img">
                             <img src="" alt="image" class="img-fluid">
@@ -68,7 +135,7 @@ if (isset($_GET['token'])) {
                 <div class="col-sm-7">
                     <div class="cv-prod-content">
                         <h2 class="cv-price-title"><?= $product['name'] ?></h2>
-                        <p class="cv-pdoduct-price"><del>$170</del><?= $product['price'] ?></p>
+                        <p class="cv-pdoduct-price"><?= $product['price'] ?></p>
                         <!-- <div class="cv-prod-category">
                                     <span>Category :</span>
                                     <a href="#" class="cv-prod-category"> Face Mask</a>,
@@ -104,7 +171,8 @@ if (isset($_GET['token'])) {
             </div>
             <div class="cv-shop-tab">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab" aria-selected="true">description</a>
+                    <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab"
+                        aria-selected="true">description</a>
                     <!-- <a class="nav-link" data-toggle="tab" href="#cv-pro-review" role="tab" aria-selected="false">Review</a> -->
                 </div>
                 <div class="tab-content cv-tab-content" id="nav-tabContent">
