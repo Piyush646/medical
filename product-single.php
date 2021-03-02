@@ -54,9 +54,68 @@ if (isset($_GET['token'])) {
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-sm-10 " style="margin-bottom:15px">
-                        <div class="cv-pro-thumb-img">
-                            <img src="<?= $product_img[0]['img'] ?>" alt="image" class="img-fluid">
+                       
+                        <?php
+         if(isset($product_img))
+        {
+        ?>
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            
+                            <hr>
+                            <ol class="carousel-indicators" style="margin-bottom: -3px;width: 12vw;margin-left: 42%;">
+
+                                <?php
+                            if(isset($product_img))
+                            {
+                                $i=0;
+                                foreach($product_img as $pop)
+                                {
+                                    $active='';
+                                    if($i==0)
+                                    {
+                                        $active="class='active'";
+                                    }
+                                    ?>
+
+                                <li data-target="#carousel" data-slide-to="<?=$i?>" <?=$active?>
+                                    style="background-color: white;border-radius: 50%"></li>
+                                <?php
+                                        $i++;
+                                }
+                            }
+                        ?>
+
+
+                            </ol>
+                            <div class="carousel-inner" style="padding: 0 16px;">
+
+                                <?php
+
+                                    $i=0;
+                                    foreach($product_img as $pop)
+                                    { 
+                                        $active='';
+                                        if($i==0)
+                                        {
+                                            $active ="active";
+                                        }
+                        ?>
+                                        <div class="carousel-item <?=$active?>">
+                                            <div class="cv-pro-thumb-img">
+                                                <img src="<?= $pop['img'] ?>" alt="image" class="img-fluid">
+                                            </div>
+                                        </div>
+
+                                <?php
+                    $i++;
+                        }
+
+                ?>
+                            </div>
                         </div>
+                        <?php
+         }
+        ?>
                     </div>
                     <div class="col-sm-7">
                         <div class="cv-prod-content">
@@ -97,7 +156,8 @@ if (isset($_GET['token'])) {
                 </div>
                 <div class="cv-shop-tab">
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab" aria-selected="true">description</a>
+                        <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab"
+                            aria-selected="true">description</a>
                         <!-- <a class="nav-link" data-toggle="tab" href="#cv-pro-review" role="tab" aria-selected="false">Review</a> -->
                     </div>
                     <div class="tab-content cv-tab-content" id="nav-tabContent">
