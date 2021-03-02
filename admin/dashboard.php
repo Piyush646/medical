@@ -3,88 +3,37 @@ require_once 'header.php';
 require_once 'navbar.php';
 require_once 'left-navbar.php';
  
-    if(isset($_POST['send_sms']))
-      { 
-          $sms = test_input($_POST['gen_sms']);
-          $numbers='';
-          $sql="select  m.mob_no  from gym_member m";
-          $result=$conn->query($sql);
-          if($result->num_rows>0){
-              while($row=$result->fetch_assoc())
-              {
-                  $numbers .= $row['mob_no'].',';
-              }
-                $numbers =  rtrim($numbers,",");
-          }  
-          $result = json_decode(send_sms($numbers,$sms));
-          if($result->status==='success')
-          {
-              $resMember=true;
-          }
-          
-      } 
-    $sql="SELECT count(id) as count from gym_member";
-    if($result=$conn->query($sql)){
-        if($result->num_rows>0){
-            while($row=$result->fetch_assoc())
-            {
-                $usersCount=$row['count'];
-            }
+$sql="SELECT count(id) as count from product";
+if($result=$conn->query($sql))
+{
+    if($result->num_rows>0)
+    {
+        $row=$result->fetch_assoc(); 
+        $products=$row['count']; 
+    }
+} 
+$sql="SELECT count(id) as count from subscribe";
+if($result=$conn->query($sql))
+{
+    if($result->num_rows>0)
+    {
+        $row=$result->fetch_assoc(); 
+          $subscriber=$row['count']; 
+    }
+} 
+$sql="SELECT * from product order by time_stamp desc limit 10";
+if($result=$conn->query($sql))
+{
+    if($result->num_rows>0)
+    {
+        while($row=$result->fetch_assoc())
+        {
+            $product_details[]=$row; 
         }
-//        print_r($pending_orders);
+        
     }
-    $date = date('d/m/Y'); 
-     
-    $sql="select count(id) as count from mem_fees f where  STR_TO_DATE(f.last_date,'%d/%m/%Y') > STR_TO_DATE('$date','%d/%m/%Y')";
-    if($result=$conn->query($sql)){
-        if($result->num_rows>0){
-            while($row=$result->fetch_assoc())
-            {
-                $pCount=$row['count'];
-            }
-        } 
-    }
-    $sql="select count(id) as count from  mem_fees f where  STR_TO_DATE(f.last_date,'%d/%m/%Y') > STR_TO_DATE('$date','%d/%m/%Y') and STR_TO_DATE('$date','%d/%m/%Y') > DATE_SUB(STR_TO_DATE(f.last_date,'%d/%m/%Y'), INTERVAL 2 DAY)";
-    if($result=$conn->query($sql)){
-        if($result->num_rows>0){
-            while($row=$result->fetch_assoc())
-            {
-                $ndCount=$row['count'];
-            }
-        } 
-    }
-    $sql="select count(id) as count from mem_fees f where STR_TO_DATE(f.last_date,'%d/%m/%Y') < STR_TO_DATE('$date','%d/%m/%Y')";
-    if($result=$conn->query($sql)){
-        if($result->num_rows>0){
-            while($row=$result->fetch_assoc())
-            {
-                $dCount=$row['count'];
-            }
-        } 
-    }
-    $sql="SELECT count(id) as count from qna where answer=''";
-    if($result=$conn->query($sql)){
-        if($result->num_rows>0){
-            while($row=$result->fetch_assoc())
-            {
-                $NqCount=$row['count'];
-            }
-        }
-//        print_r($pending_orders);
-    }
-      $sql="SELECT count(id) as count from qna where answer!=''";
-    if($result=$conn->query($sql)){
-        if($result->num_rows>0){
-            while($row=$result->fetch_assoc())
-            {
-                $AqCount=$row['count'];
-            }
-        }
- 
-    }
-    
- 
-       
+}
+
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -99,90 +48,81 @@ require_once 'left-navbar.php';
       </ol>
     </section>
 
-    <!-- Main content -->
     <section class="content">
-      <!-- Info boxes -->
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Users</span>
-              <span class="info-box-number"><?=$usersCount?></span>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="contest?token=1" style="background-color: white;">
+                    <div class="info-box mb-3 bg-green">
+                        <span class="info-box-icon"><i class="fa fa-tasks"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Equipments</span>
+                            <span class="info-box-number"><?=$products?></span>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
+            <div class="col-md-6">
+                <a href="#" style="background-color: white;">
+                    <div class="info-box mb-3 bg-red">
+                        <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+                        <div class="info-box-content" style="color: white;">
+                            <span class="info-box-text">Subscriber</span>
+                            <span class="info-box-number"><?=$subscriber?></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </a>
+            </div>
         </div>
-        <!-- /.col -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Due Fee Members</span>
-              <span class="info-box-number"><?=$dCount;?></span>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header border-transparent" style="background-color: #343a40;">
+                        <h3 class="card-title" style="color: white;">Recently Added Equipments</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table m-0" style="border-spacing: 2px;  font-size: 16px;">
+                                <thead style="font-weight: 800; background-color: #6c757d; color: white;">
+                                    <tr>
+                                        <th style="text-align: center;">S.no.</th>
+                                        <th style="text-align: center;">Name</th>
+                                        <th style="text-align: center;">Price</th>
+                                        <th style="text-align: center;">Code</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;">
+                                    <?php
+                                        if(isset($product_details))
+                                        {
+                                            $i=1;
+                                            foreach($product_details as $data)
+                                            {
+                                    ?>
+                                                <tr>
+                                                    <td style="padding: 12px; color: #17a2b8;"><?=$i?></td>
+                                                    <td style="padding: 12px;"><?=$data['name']?></td>
+                                                    <td style="padding: 12px;"><?=$data['price']?></td>
+                                                    <td style="padding: 12px;"><?=$data['code']?></td>
+                                                </tr>
+                                    <?php
+                                                $i++;
+                                            }
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer clearfix">
+                            <a href="medical_eqi" class="btn btn-sm btn-info float-right">View All Equipments</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-
-        <!-- fix for small devices only -->
-        <div class="clearfix visible-sm-block"></div>
-
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="info-box">
-             <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text" style="font-size:13px">Near Due Fee Members</span>
-              <span class="info-box-number"><?=$ndCount?></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <div class="info-box">
-             <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text" style="font-size:13px">Paid Fee Memebrs</span>
-              <span class="info-box-number"><?=$pCount?></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-   <!-- Content Header (Page header) -->
-     
-
-   
-</section>
-<section class="content">
-    <form method="post">
-        <div class="box">
-            <div class="box-body" style="height: 280px;">  
-                <h4>Send General SMS To Memebrs</h4>
-                <textarea style="width: 100%;height:150px;resize:none" class="form-control" name="gen_sms" required></textarea> 
-              <section class="content-header">
-                  <ol class="breadcrumb">
-                      <li>
-                          <div class="pull-right">    
-                              <button type="submit" class="btn btn-success" name="send_sms">Send Sms</button>   
-                          </div>
-                      </li>
-                  </ol>
-              </section>
-            </div>
-        </div>  
-  </form>
-</section>
+    </section>
  	   
   <div class="control-sidebar-bg"></div>
 <?php
