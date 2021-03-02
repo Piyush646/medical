@@ -21,6 +21,15 @@ if($result=$conn->query($sql))
           $subscriber=$row['count']; 
     }
 } 
+$sql="SELECT count(id) as count from quote";
+if($result=$conn->query($sql))
+{
+    if($result->num_rows>0)
+    {
+        $row=$result->fetch_assoc(); 
+          $quote=$row['count']; 
+    }
+} 
 $sql="SELECT * from product order by time_stamp desc limit 10";
 if($result=$conn->query($sql))
 {
@@ -50,8 +59,8 @@ if($result=$conn->query($sql))
 
     <section class="content">
         <div class="row">
-            <div class="col-md-6">
-                <a href="contest?token=1" style="background-color: white;">
+            <div class="col-md-4">
+                <a href="medical_eqi" style="background-color: white;">
                     <div class="info-box mb-3 bg-green">
                         <span class="info-box-icon"><i class="fa fa-tasks"></i></span>
                         <div class="info-box-content">
@@ -61,13 +70,25 @@ if($result=$conn->query($sql))
                     </div>
                 </a>
             </div>
-            <div class="col-md-6">
-                <a href="#" style="background-color: white;">
-                    <div class="info-box mb-3 bg-red">
-                        <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+            <div class="col-md-4">
+                <a href="subscribers" style="background-color: white;">
+                    <div class="info-box mb-3 bg-blue">
+                        <span class="info-box-icon"><i class="fa fa-users"></i></span>
                         <div class="info-box-content" style="color: white;">
-                            <span class="info-box-text">Subscriber</span>
+                            <span class="info-box-text">Subscribers</span>
                             <span class="info-box-number"><?=$subscriber?></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="quote" style="background-color: white;">
+                    <div class="info-box mb-3 bg-yellow">
+                        <span class="info-box-icon"><i class="fa fa-comment"></i></span>
+                        <div class="info-box-content" style="color: white;">
+                            <span class="info-box-text">Quotes</span>
+                            <span class="info-box-number"><?=$quote?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
