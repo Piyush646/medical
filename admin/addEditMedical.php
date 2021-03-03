@@ -42,7 +42,6 @@
                     $sql="update product set name='$name',price='$price',dis='$dis',code='$code' where id='$id'";
                     if($conn->query($sql))
                     {
-                        
                         if(upload_images2($_FILES,$conn,"product_img","p_id","img",$id,"projectFile",$website_link."/admin/uploads"))
                         {
                             $resMember = "all_true";
@@ -53,7 +52,7 @@
                     }
                    else
                     {
-                      $errorMember=true;
+                      $errorMember=$conn->error;
                     }
                 }
                 
@@ -66,11 +65,8 @@
                 $result =  $conn->query($sql);
                 if($result->num_rows)
                 {
-                    $row = $result->fetch_assoc();
-                    
-                    $productList = $row;
-                    
-    
+                    $row = $result->fetch_assoc(); 
+                    $productList = $row;  
                 }
 
                 $sql = "SELECT * from product_img where p_id=$id";
