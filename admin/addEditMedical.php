@@ -9,10 +9,11 @@
         {
             // $id=$_GET['token'];
             $name=$_POST['ename'];
-            $dis=$_POST['edis'];
+            $dis=$conn->real_escape_string($_POST['edis']);
+            $short_des=$conn->real_escape_string($_POST['short_des']);
             $price=$_POST['eprice'];
             $code=$_POST['ecode'];
-            $sql="insert into  product(name,price,dis,status,code) values ('$name','$price','$dis',1,$code)";
+            $sql="insert into  product(name,price,dis, short_des, status,code) values ('$name','$price','$dis', '$short_des', 1, $code)";
             if($conn->query($sql))
                 {
                     $insert_id = $conn->insert_id;
@@ -36,10 +37,11 @@
                 {
                     $id=$_GET['token'];
                     $name=$_POST['ename'];
-                    $dis=$_POST['edis'];
+                    $dis=$conn->real_escape_string($_POST['edis']);
+                    $short_des=$conn->real_escape_string($_POST['short_des']);
                     $price=$_POST['eprice'];
                     $code=$_POST['ecode'];
-                    $sql="update product set name='$name',price='$price',dis='$dis',code='$code' where id='$id'";
+                    $sql="update product set name='$name',price='$price',dis='$dis', short_des='$short_des', code='$code' where id='$id'";
                     if($conn->query($sql))
                     {
                         if(upload_images2($_FILES,$conn,"product_img","p_id","img",$id,"projectFile",$website_link."/admin/uploads"))
@@ -144,17 +146,26 @@
                     </div>
                 </div><br>
                 <div class="row">
-                    <div class="col-sm-12"><br>
-                         <label >Description of Equipment :</label>
-                        <textarea type="text" class="form-control" id="" name="edis"><?=$productList['dis']?></textarea>
-
+                    <div class="col-md-10"> 
+                        <div class="form-group">
+                            <label style="margin-left:5px">Description</label><br> 
+                            <textarea id="edis" name="edis" class="form-control" rows="3" style="resize: none;width: 100%;" required><?=$productList['dis']?></textarea>
+                        </div> 
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"> 
+                        <div class="form-group">
+                            <label >Short Description</label>
+                            <textarea id="short_des" name="short_des" class="form-control" rows="3" style="resize: none;width: 100%;" required><?=$productList['short_des']?></textarea>
+                        </div>
+                    </div>                        
                 </div><br><br>
                 
-                            <div class="form-group">
-                                <label>Add Product Images :</label><br>
-                                <button type="button" class="btn btn-success" onclick="addFilesField()"><i class="fa fa-plus"></i></button>
-                            </div> 
+                <div class="form-group">
+                    <label>Add Product Images :</label><br>
+                    <button type="button" class="btn btn-success" onclick="addFilesField()"><i class="fa fa-plus"></i></button>
+                </div> 
                 
                 <div class="row" style="margin-bottom:20px"> 
                         
