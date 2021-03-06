@@ -178,7 +178,7 @@
                              <th style="  text-align: center;">Name</th>
                              <th style="  text-align: center;">Price</th>
                              <th style="  text-align: center;">Product Code</th>
-                             <th style="  text-align: center;">Description</th>
+                             <th style="  text-align: center;">Short Description</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -198,7 +198,7 @@
                                          <td style="  text-align: center; " id="name<?=$i?>"><?=$d['name'];?></td> 
                                          <td style="  text-align: center; " id="price<?=$i?>"><?=$d['price'];?></td>
                                          <td style="  text-align: center; " id="code<?=$i?>"><?=$d['code'];?></td> 
-                                         <td style="  text-align: center; " id="dis<?=$i?>"><?=$d['dis'];?></td> 
+                                         <td style="  text-align: center; " id="dis<?=$i?>"><?=$d['short_des'];?></td> 
                                          
                                            <td>
                                              <form method="post">

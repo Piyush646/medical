@@ -13,15 +13,18 @@
         $ab_line2=$conn->real_escape_string($_POST['ab_line2']);
         $ab_line3=$conn->real_escape_string($_POST['ab_line3']);
         $ab_line4=$conn->real_escape_string($_POST['ab_line4']);
+        $facebook=$conn->real_escape_string($_POST['facebook']);
+        $twitter=$conn->real_escape_string($_POST['twitter']);
+        $insta=$conn->real_escape_string($_POST['instagram']);
         $img=upload_image($_FILES);
         if($img!="err")
         {
-        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$website_link/admin/uploads/$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4'"; 
+        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$website_link/admin/uploads/$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta'"; 
          
         }
         else
         {
-            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4'";
+            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta'";
         } 
         if($conn->query($sql))
         {
@@ -95,6 +98,21 @@
                                 value="<?=$about['location']?>">
 
                         </div><br>
+                        <div class="col-sm-6"><br>
+                            <label>Facebook Handle :</label>
+                            <input type="text" class="form-control" id="" name="facebook" value="<?=$about['facebook']?>">
+
+                        </div>
+                        <div class="col-sm-6"><br>
+                            <label>Twitter Handle :</label>
+                            <input type="text" class="form-control" id="" name="twitter" value="<?=$about['twitter']?>">
+
+                        </div>
+                         <div class="col-sm-6"><br>
+                            <label>Instagram Handle :</label>
+                            <input type="text" class="form-control" id="" name="instagram" value="<?=$about['instagram']?>">
+
+                        </div>
                         <div class="col-sm-12"><br>
                             <label>Message from Admin :</label><br>
                             <textarea style="width: 100%;height:120px;resize:none"
