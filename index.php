@@ -33,10 +33,6 @@ if ($res = $conn->query($sql)) {
 }
 
 
-
-
-
-
 $sql="select * from home_slider order by sort_order";
 if($res=$conn->query($sql))
 {
@@ -49,6 +45,20 @@ if($res=$conn->query($sql))
         
     }
 }
+
+$sql ="Select * from category";
+if($res=$conn->query($sql))
+{
+    if($res->num_rows)
+    {
+        while($row = $res->fetch_assoc())
+        {
+            $category[]=$row;
+        }
+        
+    }
+}
+
 ?>
 
 <!-- main header start -->
@@ -59,13 +69,13 @@ require 'navbar.php';
 <!-- banner start -->
 <div class="cv-banner">
     <div class="container">
-        <div >
+        <div>
 
 
-            <?php
-                                if(isset($slider))
-                                {
-                                ?>
+            <!-- <?php
+               // if(isset($slider))
+                //{
+            ?>
             <div id="carousel" class="carousel slide" data-ride="carousel">
 
                 <hr>
@@ -149,111 +159,245 @@ require 'navbar.php';
                 </a>
             </div>
             <?php
-                }
-                ?>
+              //  }
+            ?> -->
         </div>
 
 
 
     </div>
 </div>
+<section class="cd-hero">
+<?php
+    if(isset($category))
+    {   
+        $i=1;
+        $select = "";
+        ?>
+            <ul class="cd-hero-slider">
+        <?php
+        foreach($category as $caty)
+        {
+            if($i == 1)
+            {
+                $select="selected from-left";
+            }
+            else
+            {
+                $select="";
+            }
+            ?>
+                <li class="<?=$select?>">
+                    <div class="cd-half-width">
+                        <h2><?=$caty['category']?></h2>
+                        <a href="#" class="cd-btn">View <?=$caty['category']?></a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/<?=$caty['cat_img']?>">
+                    </div>
+                </li>
+            <?php
+            $i++;
+            if($i<6)
+            {
+                $i=1;
+            }
+        }
+        $selected ="";
+        ?>
+            </ul>
+
+        <div class="cd-slider-nav">
+            <nav>
+                <span class="cd-marker item-1"></span>
+                <ul>
+        <?php
+        $j=0;
+        foreach($category as $caty)
+        {
+            if($j == 0)
+            {
+                $selected="selected";
+            }
+            else
+            {
+                $selected="";
+            }
+            ?>
+                <li class="<?=$selected?>">
+                    <a href="#<?=$j?>">
+                        <span><img src="assets/<?=$caty['cat_logo']?>" alt=""></span>
+                        <?=$caty['category']?>
+                    </a>
+                </li>
+            <?php
+            $j++;
+            if($j<5)
+            {
+                $j=0;
+            }
+        }
+        ?>
+                </ul>
+            </nav>
+        </div>
+        <?php
+    }
+
+?>
+</section>
+<section class="cd-hero">
+        <ul class="cd-hero-slider">
+                <li class="selected from-left">
+                    <div class="cd-half-width">
+                        <h2>Face Masks</h2>
+                        <a href="#" class="cd-btn">View Face Masks</a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/masks.png">
+                    </div>
+                </li>
+                <li class="">
+                    <div class="cd-half-width">
+                        <h2>Shoe Covers</h2>
+                        <a href="#" class="cd-btn">View Shoe Covers</a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/shoes.png">
+                    </div>
+                </li>
+                <li class="">
+                    <div class="cd-half-width">
+                        <h2>Mob Caps</h2>
+                        <a href="#" class="cd-btn">View Mob Caps</a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/mob.png">
+                    </div>
+                </li>
+                <li class="">
+                    <div class="cd-half-width">
+                        <h2>Incontinence</h2>
+                        <a href="#" class="cd-btn">View Incontinence</a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/incontinence.png">
+                    </div>
+                </li>
+                <li class="">
+                    <div class="cd-half-width">
+                        <h2>Gloves</h2>
+                        <a href="#" class="cd-btn">View Gloves</a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/gloves.png">
+                    </div>
+                </li>
+                <li class="">
+                    <div class="cd-half-width">
+                        <h2>Oral Swabs</h2>
+                        <a href="#" class="cd-btn">View Oral Swabs</a>
+                    </div>
+                    <div class="cd-half-width cd-img-container">
+                        <img src="assets/oral.png">
+                    </div>
+                </li>
+        </ul>
+
+        <div class="cd-slider-nav">
+            <nav>
+                <span class="cd-marker item-1"></span>
+                <ul>
+                        <li class="selected">
+                            <a href="#0">
+                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-1-image.png" alt=""></span>
+                                Face Masks                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#1">
+                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-2-image.png" alt=""></span>
+                                Shoe Covers                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#2">
+                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-3-image.png" alt=""></span>
+                                Mob Caps                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#3">
+                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-4-image.png" alt=""></span>
+                                Incontinence                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#4">
+                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-5-image.png" alt=""></span>
+                                Gloves                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#5">
+                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-6-image.png" alt=""></span>
+                                Oral Swabs                            </a>
+                        </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
 <!-- banner end -->
 <!-- feature start -->
 
-<div class="cv-feature spacer-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="cv-feature-box">
-                    <div class="cv-feature-img">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" focusable="false" width="300" height="300"
-                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path
-                                d="M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z" />
-                        </svg>
-                        <!-- <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"> -->
-                        <!-- <path d="m59 54.141v-9.141h-5v-6h-12v-11h-7l-10.506-6.304c.237-3.338-1.585-6.518-4.583-8.012 2.376-.799 4.089-3.039 4.089-5.684 0-.369-.038-.728-.102-1.078l2.357-.506c1.08-.232 1.767-1.295 1.535-2.375l-4.584.985c-1.095-1.913-3.208-3.168-5.604-3.013-2.913.188-5.341 2.568-5.581 5.477-.245 2.97 1.676 5.528 4.353 6.281-2.503 1.56-3.942 4.468-3.538 7.498l1.164 8.731-1 12-6 19v1h7l-1-3h-.333l2.685-8.054.648 11.054h7l-1-3h-1.871l1.871-29 1.485-4.419 11.515 5.419h5v24.38c-.615.703-1 1.613-1 2.62 0 2.209 1.791 4 4 4s4-1.791 4-4c0-.732-.211-1.41-.555-2h8.109c-.343.59-.554 1.268-.554 2 0 2.209 1.791 4 4 4s4-1.791 4-4c0-1.862-1.278-3.413-3-3.859zm-16 4.859c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm5-16h-4v-2h4zm10 16c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" /> -->
-                        <!-- </svg> -->
-                    </div>
-                    <div class="cv-feature-text">
-                        <h3><?=$about['ab_line1']?></h3>
-                        <!-- <p>When order is over $199</p> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="cv-feature-box">
-                    <div class="cv-feature-img">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" focusable="false" width="300" height="300"
-                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path
-                                d="M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z" />
-                        </svg>
-                        <!-- <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"> -->
-                        <!-- <g>
-                                <path d="m0 141.356h422v30h-422z" />
-                                <path d="m422 102.356c0-24.813-20.187-45-45-45h-332c-24.813 0-45 20.187-45 45v9h422z" />
-                                <path d="m421 242.643c.334 0 .666.01 1 .013v-41.299h-422v123c0 24.813 20.187 45 45 45h255.138c-.089-1.894-.139-3.798-.139-5.713.001-66.721 54.281-121.001 121.001-121.001zm-346-11.286h37.5c8.284 0 15 6.716 15 15s-6.716 15-15 15h-37.5c-8.284 0-15-6.716-15-15s6.716-15 15-15zm85 77.999h-85c-8.284 0-15-6.716-15-15s6.716-15 15-15h85c8.284 0 15 6.716 15 15s-6.716 15-15 15z" />
-                                <path d="m421 272.643c-50.178 0-91 40.823-91 91 0 50.178 40.823 91 91 91s91-40.823 91-91-40.823-91-91-91zm43.607 83.277-36 36c-2.929 2.929-6.768 4.394-10.606 4.394s-7.678-1.464-10.606-4.394l-18.5-18.5c-5.858-5.858-5.858-15.355 0-21.213 5.857-5.858 15.355-5.858 21.213 0l7.894 7.894 25.394-25.394c5.857-5.858 15.355-5.858 21.213 0 5.855 5.858 5.855 15.355-.002 21.213z" />
-                            </g> -->
-                        <!-- </svg> -->
-                    </div>
-                    <div class="cv-feature-text">
-                        <h3><?=$about['ab_line2']?></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="cv-feature-box">
-                    <div class="cv-feature-img">
-                        <!-- <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"> -->
-                        <!-- <path d="m96 16a80.2 80.2 0 0 1 64 32h-8v16h24a8 8 0 0 0 7.59-5.47l8-24-15.18-5.06-3.175 9.53a95.994 95.994 0 0 0 -173.235 57h16a80.091 80.091 0 0 1 80-80z" />
-                            <path d="m176 96a80 80 0 0 1 -144 48h8v-16h-24a8 8 0 0 0 -7.59 5.47l-8 24 15.18 5.06 3.175-9.53a95.994 95.994 0 0 0 173.235-57z" />
-                            <path d="m40 96a56 56 0 1 0 56-56 56.063 56.063 0 0 0 -56 56zm80-32v16h-28a4 4 0 0 0 0 8h8a20 20 0 0 1 4 39.6v8.4h-16v-8h-16v-16h28a4 4 0 0 0 0-8h-8a20 20 0 0 1 -4-39.6v-8.4h16v8z" /> -->
-                        <!-- </svg> -->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" focusable="false" width="300" height="300"
-                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path
-                                d="M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z" />
-                        </svg>
-                    </div>
-                    <div class="cv-feature-text">
-                        <h3><?=$about['ab_line3']?></h3>
-                        <!-- <p>Lorem ipsum dolar sit</p> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="cv-feature-box">
-                    <div class="cv-feature-img">
-                        <!-- <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"> -->
-                        <!-- <path d="m512 346.5c0-63.535156-36.449219-120.238281-91.039062-147.820312-1.695313 121.820312-100.460938 220.585937-222.28125 222.28125 27.582031 54.589843 84.285156 91.039062 147.820312 91.039062 29.789062 0 58.757812-7.933594 84.210938-23.007812l80.566406 22.285156-22.285156-80.566406c15.074218-25.453126 23.007812-54.421876 23.007812-84.210938zm0 0" />
-                            <path d="m391 195.5c0-107.800781-87.699219-195.5-195.5-195.5s-195.5 87.699219-195.5 195.5c0 35.132812 9.351562 69.339844 27.109375 99.371094l-26.390625 95.40625 95.410156-26.386719c30.03125 17.757813 64.238282 27.109375 99.371094 27.109375 107.800781 0 195.5-87.699219 195.5-195.5zm-225.5-45.5h-30c0-33.085938 26.914062-60 60-60s60 26.914062 60 60c0 16.792969-7.109375 32.933594-19.511719 44.277344l-25.488281 23.328125v23.394531h-30v-36.605469l35.234375-32.25c6.296875-5.761719 9.765625-13.625 9.765625-22.144531 0-16.542969-13.457031-30-30-30s-30 13.457031-30 30zm15 121h30v30h-30zm0 0" /> -->
-                        <!-- </svg> -->
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                            aria-hidden="true" focusable="false" width="300" height="300"
-                            style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"
-                            preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                            <path
-                                d="M13.293 7.293a.999.999 0 0 0 0 1.414L15.586 11H8a1 1 0 0 0 0 2h7.586l-2.293 2.293a.999.999 0 1 0 1.414 1.414L19.414 12l-4.707-4.707a.999.999 0 0 0-1.414 0z" />
-                        </svg>
-                    </div>
-                    <div class="cv-feature-text">
-                        <h3><?=$about['ab_line4']?></h3>
-                        <!-- <p>By qualified team</p> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- feature end -->
+
+    <section class="features-section">
+        <div id="particle-container"></div>
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-12 d-sm-block d-none">
+	  				<div class="teamwork-logo text-center">
+	  					<img class="rotate" src="assets/logo.png" alt="teamwork">
+	  				</div>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="offset-lg-1 col-lg-3 col-md-4 col-sm-5 col-12 text-center">
+  					<div class="feature-text">
+  						<!--<h6>Lorem ipsum dolor sit, amet.</h6>-->
+  						<p><?=$about['ab_line1']?></p>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="offset-md-8 offset-sm-7 col-lg-3 col-md-4 col-sm-5 col-12 text-center">
+  					<div class="feature-text">
+  						<!--<h6>Lorem ipsum dolor sit, amet.</h6>-->
+  						<p><?=$about['ab_line2']?></p>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="offset-lg-1 col-lg-3 col-md-4 col-sm-5 col-12 text-center">
+  					<div class="feature-text">
+  						<!--<h6>Lorem ipsum dolor sit, amet.</h6>-->
+  						<p><?=$about['ab_line3']?></p>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="row">
+  				<div class="offset-md-8 offset-sm-7 col-lg-3 col-md-4 col-sm-5 col-12 text-center">
+  					<div class="feature-text">
+  						<!--<h6>Lorem ipsum dolor sit, amet.</h6>-->
+  						<p><?=$about['ab_line4']?></p>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+      
+      <!-- feature end -->
+
+
+
+
+
+
 <!-- new arrivals start -->
 <div class="cv-arrival cv-product-two">
     <div class="container">

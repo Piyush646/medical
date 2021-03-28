@@ -1,5 +1,6 @@
 <?php
 require_once "lib/core.php";
+require_once 'headerplus.php';
 
 
 if(isset($_POST['subscribe']))
@@ -45,7 +46,7 @@ if($res=$conn->query($sql))
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
+    <!-- <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-icon-76x76.png">
@@ -57,10 +58,11 @@ if($res=$conn->query($sql))
     <link rel="icon" type="image/png" sizes="192x192"  href="assets/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"> -->
+    <link rel="icon" href="assets/logo.png" type="image/icon type" style="border-radius:50%">
     <link rel="manifest" href="assets/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/logo.png">
     <meta name="theme-color" content="#ffffff">
 </head>
 

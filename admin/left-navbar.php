@@ -38,11 +38,11 @@
             <i class="fa fa-list"></i> <span>Equipments</span>
             </a>
          </li>
-         <!--<li>-->
-         <!--   <a href="social_links">-->
-         <!--   <i class="fa fa-link" aria-hidden="true"></i> <span>Social Links</span>-->
-         <!--   </a>-->
-         <!--</li>-->
+         <li>
+           <a href="category">
+           <i class="bi bi-grid-3x3-gap-fill"></i> <span>  &nbsp;Category</span>
+           </a>
+         </li>
          <li>
             <a href="subscribers">
             <i class="fa fa-bell" aria-hidden="true"></i> <span>Subscribers</span>

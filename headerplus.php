@@ -7,8 +7,8 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;family=Titillium+Web:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
             <link rel="apple-touch-icon" sizes="180x180" href="https://omnitex-uk.com/wp-content/themes/omnitex/favicon_io/apple-touch-icon.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/round logo.jpg">
-            <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/round logo.jpg">
+            <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
             <link rel="manifest" href="https://omnitex-uk.com/wp-content/themes/omnitex/favicon_io/site.webmanifest">
 
             <!-- CSS -->
@@ -18,7 +18,9 @@
             <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/style.css?v=1.1">
             <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/jquery.modal.min.css" media="screen">
 
-            
+            <title>Int Trade Global</title>
+
+            <title>Int Trade Global</title>
 <link rel="dns-prefetch" href="//s.w.org">
 <link rel="alternate" type="application/rss+xml" title="Omnitex » Feed" href="https://omnitex-uk.com/feed/">
 <link rel="alternate" type="application/rss+xml" title="Omnitex » Comments Feed" href="https://omnitex-uk.com/comments/feed/">
