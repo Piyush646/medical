@@ -6,7 +6,7 @@
       <!-- Sidebar user panel -->
       <!-- <div class="user-panel">
              <div class="image">
-               <form enctype="multipart/form-data" action="image_upload_demo_submit.php" method="post" name="image_upload_form" id="image_upload_form">
+               <form enctype="multipart/form-data" action="image_upload_demo_submit" method="post" name="image_upload_form" id="image_upload_form">
                   <div id="imgArea" class="pull-left image"
                      <img src="<?=$DATA['user_pic'];?>" width="48" height="48" >
                      <div class="progressBar">
@@ -34,27 +34,32 @@
             </a>
          </li>
          <li>
-            <a href="medical_eqi.php">
+            <a href="medical_eqi">
             <i class="fa fa-list"></i> <span>Equipments</span>
             </a>
          </li>
+         <!--<li>-->
+         <!--   <a href="social_links">-->
+         <!--   <i class="fa fa-link" aria-hidden="true"></i> <span>Social Links</span>-->
+         <!--   </a>-->
+         <!--</li>-->
          <li>
-            <a href="social_links.php">
-            <i class="fa fa-link" aria-hidden="true"></i> <span>Social Links</span>
-            </a>
-         </li>
-         <li>
-            <a href="subscribers.php">
+            <a href="subscribers">
             <i class="fa fa-bell" aria-hidden="true"></i> <span>Subscribers</span>
             </a>
          </li>
          <li>
-            <a href="about.php">
+            <a href="about">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <span>About</span>
             </a>
          </li>
          <li>
-            <a href="quote.php">
+            <a href="home_slider">
+            <i class="fa fa-image" aria-hidden="true"></i> <span>Home Slider</span>
+            </a>
+         </li>
+         <li>
+            <a href="quote">
             <i class="fa fa-quote-left" aria-hidden="true"></i><span>Quote</span>
             </a>
          </li>

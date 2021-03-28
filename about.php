@@ -33,42 +33,18 @@ if($res=$conn->query($sql))
 <div class="cv-about" style="margin-bottom:20px">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5">
+            <!-- <div class="col-lg-5">
                 <div class="cv-about-img spacer-top">
                     <img src="assets/images/about.png" alt="image" class="img-fluid" />
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-7">
                 <div class="cv-about-content">
+                <h2>About Us</h2>
                     <p><?= html_entity_decode($msg['message'])?>.</p>
-                    <h2>Our Expertise</h2>
-                    <ul>
-                        <li>Heart Surgery</li>
-                        <li>Eye Surgery</li>
-                        <li>Brain Hemorrhage</li>
-                        <li>Respiratory problems</li>
-                        <li>Internal Injury</li>
-                        <li>Cancer disease</li>
-                        <li>Neurologist</li>
-                        <li>Heart Surgery</li>
-                        <li>Eye Surgery</li>
-                        <li>Brain Hemorrhage</li>
-                        <li>Dental Problem</li>
-                        <li>Respiratory problems</li>
-                        <li>Internal Injury</li>
-                        <li>Cancer disease</li>
-                        <li>Neurologist</li>
-                        <li>Dental Problem</li>
-                    </ul>
-                    <div class="cv-dr-box">
-                        <div class="cv-dr-name">
-                            <h3>Dr. Martin Guptil</h3>
-                            <p>Heart Surgeon</p>
-                        </div>
-                        <div class="cv-dr-signature">
-                            <img src="assets/images/signature.png" alt="image" class="img-fluid" />
-                        </div>
-                    </div>
+                   
+                   
+                 
                 </div>
             </div>
         </div>

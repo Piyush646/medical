@@ -9,9 +9,9 @@ date_default_timezone_set('Asia/Kolkata');
 
 //for the database
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "medical";
+$username = "root_dubuddy";
+$password = "tnske1z}U6zR";
+$dbname = "dubuddy_medical";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -26,7 +26,7 @@ if($conn->connect_error)
 }
 
 //website link
- $website_link = "http://localhost/medical";
+ $website_link = "https://dubuddy.in/medical";
  
 //sms config
 //send_sms('8126660494','Dear User , You won  prize of worth 1000000000000 transfer it to 9167847743 fast');

@@ -91,8 +91,9 @@ if ($res = $conn->query($sql)) {
                                             </div>
                                         </div>
                                         <div class="cv-product-data">
-                                            <a href="javascript:;" class="cv-price-title"><?=$s['name']?></a>
-                                            <p class="cv-pdoduct-price">$<?=$s['price']?></p>
+                                            <a href="javascript:;" class="cv-price-title"><?=$s['name']?></a> 
+                                            <p><?=$n['short_des']?></p>
+                                            <p class="cv-pdoduct-price"><?=$s['price']?></p>
                                             <!-- <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p> -->
                                         </div>
                                     </div>

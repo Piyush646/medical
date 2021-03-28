@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-3 col-9">
                     <div class="cv-logo">
-                        <a href="index.html"><img style ="height:3em; margin-left:30px;" src="<?=$contact['logo']?>" alt="image" class="img-fluid"/></a>
+                        <a href="index"><img style ="height:10em; margin-left:30px;" src="<?=$contact['logo']?>" alt="image" class="img-fluid"/></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-3">
