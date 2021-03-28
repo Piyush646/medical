@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-3 col-9">
                 <div class="cv-logo">
-                    <a href="index"><img style="height:10em; margin-left:30px;" src="<?=$contact['logo']?>" alt="image"
+                    <a href="index"><img style="height:10em; margin-left:30px;" src="assets/images/400dpiLogo.png" alt="image"
                             class="img-fluid" /></a>
                 </div>
             </div>

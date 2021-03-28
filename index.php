@@ -198,7 +198,7 @@ require 'navbar.php';
                 </li>
             <?php
             $i++;
-            if($i<6)
+            if($i>6)
             {
                 $i=1;
             }
@@ -232,7 +232,7 @@ require 'navbar.php';
                 </li>
             <?php
             $j++;
-            if($j<5)
+            if($j>5)
             {
                 $j=0;
             }
@@ -246,102 +246,7 @@ require 'navbar.php';
 
 ?>
 </section>
-<section class="cd-hero">
-        <ul class="cd-hero-slider">
-                <li class="selected from-left">
-                    <div class="cd-half-width">
-                        <h2>Face Masks</h2>
-                        <a href="#" class="cd-btn">View Face Masks</a>
-                    </div>
-                    <div class="cd-half-width cd-img-container">
-                        <img src="assets/masks.png">
-                    </div>
-                </li>
-                <li class="">
-                    <div class="cd-half-width">
-                        <h2>Shoe Covers</h2>
-                        <a href="#" class="cd-btn">View Shoe Covers</a>
-                    </div>
-                    <div class="cd-half-width cd-img-container">
-                        <img src="assets/shoes.png">
-                    </div>
-                </li>
-                <li class="">
-                    <div class="cd-half-width">
-                        <h2>Mob Caps</h2>
-                        <a href="#" class="cd-btn">View Mob Caps</a>
-                    </div>
-                    <div class="cd-half-width cd-img-container">
-                        <img src="assets/mob.png">
-                    </div>
-                </li>
-                <li class="">
-                    <div class="cd-half-width">
-                        <h2>Incontinence</h2>
-                        <a href="#" class="cd-btn">View Incontinence</a>
-                    </div>
-                    <div class="cd-half-width cd-img-container">
-                        <img src="assets/incontinence.png">
-                    </div>
-                </li>
-                <li class="">
-                    <div class="cd-half-width">
-                        <h2>Gloves</h2>
-                        <a href="#" class="cd-btn">View Gloves</a>
-                    </div>
-                    <div class="cd-half-width cd-img-container">
-                        <img src="assets/gloves.png">
-                    </div>
-                </li>
-                <li class="">
-                    <div class="cd-half-width">
-                        <h2>Oral Swabs</h2>
-                        <a href="#" class="cd-btn">View Oral Swabs</a>
-                    </div>
-                    <div class="cd-half-width cd-img-container">
-                        <img src="assets/oral.png">
-                    </div>
-                </li>
-        </ul>
-
-        <div class="cd-slider-nav">
-            <nav>
-                <span class="cd-marker item-1"></span>
-                <ul>
-                        <li class="selected">
-                            <a href="#0">
-                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-1-image.png" alt=""></span>
-                                Face Masks                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#1">
-                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-2-image.png" alt=""></span>
-                                Shoe Covers                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#2">
-                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-3-image.png" alt=""></span>
-                                Mob Caps                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#3">
-                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-4-image.png" alt=""></span>
-                                Incontinence                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#4">
-                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-5-image.png" alt=""></span>
-                                Gloves                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#5">
-                                <span><img src="https://omnitex-uk.com/wp-content/themes/omnitex/images/icon-6-image.png" alt=""></span>
-                                Oral Swabs                            </a>
-                        </li>
-                </ul>
-            </nav>
-        </div>
-    </section>
+    
 <!-- banner end -->
 <!-- feature start -->
 

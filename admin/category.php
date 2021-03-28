@@ -125,6 +125,18 @@
         }
     }
  
+    $sql ="Select * from category";
+if($res=$conn->query($sql))
+{
+    if($res->num_rows)
+    {
+        while($row = $res->fetch_assoc())
+        {
+            $category[]=$row;
+        }
+        
+    }
+}
 
     
 ?>
@@ -143,7 +155,6 @@
         <ol class="breadcrumb">
             <li>
                 <div class="pull-right">
-                    <a title="" href="./addEditMedical.php" class="btn btn-primary" ><i class="fa fa-plus"></i></a> 
                     <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Rebuild"><i class="fa fa-refresh"></i></a>
                 </div>
             </li>
@@ -175,118 +186,41 @@
                     <thead>
                         <tr>
                              
-                             <th style="  text-align: center;">Name</th>
-                             <th style="  text-align: center;">Price</th>
-                             <th style="  text-align: center;">Product Code</th>
-                             <th style="  text-align: center;">Short Description</th>
-                            <th>Action</th>
+                             <th style="  text-align: center;">S No.</th>
+                             <th style="  text-align: center;width:50%" width="50%">Category</th>
+                             <th >Action</th>
                         </tr>
                     </thead>
                      <tbody> 
  
                     
                      <?php 
-                            if (isset($productList)) 
+                            if (isset($category)) 
                             {
                                 $i = 1;
-                                foreach ($productList as $d) 
+                                foreach ($category as $d) 
                                 {     
                      ?> 
                                      <tr> 
                                          
                                          
-                                         <td style="  text-align: center; " id="name<?=$i?>"><?=$d['name'];?></td> 
-                                         <td style="  text-align: center; " id="price<?=$i?>"><?=$d['price'];?></td>
-                                         <td style="  text-align: center; " id="code<?=$i?>"><?=$d['code'];?></td> 
-                                         <td style="  text-align: center; " id="dis<?=$i?>"><?=$d['short_des'];?></td> 
+                                        <td style="  text-align: center; " id="name<?=$i?>"><?=$d['id'];?></td> 
+                                        <td style="  text-align: center; " width="50%" id="price<?=$i?>">
+                                            <input type="text" class="form-control edit" name="category" id="category<?=$d['id']?>" style="width:50%" value="<?=$d['category'];?>" disabled>
+                                        </td>
                                          
-                                           <td>
+                                        <td>
                                              <form method="post">
-                                                <a href="http://localhost/medical/admin/addEditMedical.php?token=<?=$d['id']?>" name="confirm" type="button" class="btn btn-success"  onclick="" value="<?=$d['id'] ?>">
-                                                            <i class="fa fa-edit">Edit</i>
-                                                </a>
-                                                <button  class="btn btn-danger" type="submit" name="delete" value="<?=$d['id']?>">
-                                                            <i class="fa fa-trash-o"></i> Delete
-                                                </button>
-                                                <?php
-                                                $status=$d['status'];
-                                                switch($status)
-                                                {
-                                                    case 0:
-                                                        
-                                                        ?>
-                                                        <button  class="btn btn-primary" type="submit" name="show" value="<?=$d['id']?>">
-                                                        <i class="fa fa-eye" aria-hidden="true"></i> Show
-                                                        </button>
-                                                        <?php
-                                                        break;
-                                                    case 1:
-                                                        ?>
-                                                        <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
-                                                        <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
-                                                        </button>
-                                                        <button  class="btn btn-info" type="submit" name="feature" value="<?=$d['id']?>">
-                                                        <i class="fa fa-plus-square" aria-hidden="true"></i> Feature
-                                                        </button>
-                                                        <?php
-                                                        $new=$d['new'];
-                                                        switch($new)
-                                                        {
-                                                            case 1:
-                                                                ?>
-                                                                <button  class="btn btn-warning" type="submit" name="undo_new" value="<?=$d['id']?>">
-                                                                <i class="fa fa-minus-square" aria-hidden="true"></i> Undo New
-                                                                </button>
-                                                                <?php
-                                                                break;
-                                                            case 0:
-                                                                ?>
-                                                                <button  class="btn btn-info" type="submit" name="new" value="<?=$d['id']?>">
-                                                                <i class="fa fa-plus-square" aria-hidden="true"></i> New
-                                                                </button>
-                                                                <?php
-                                                                break;   
-                                                        }
-                                                        break;
-                                                        
-                                                    case 2:
-                                                    ?>
-                                                    <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
-                                                        <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
-                                                        </button>
-                                                    <button  class="btn btn-primary" type="submit" name="unfeature" value="<?=$d['id']?>">
-                                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Unfeature
-                                                     </button> 
-                                                    <?php
-                                                    $new=$d['new'];
-                                                    switch($new)
-                                                    {
-                                                        case 0:
-                                                            ?>
-                                                            <button  class="btn btn-info" type="submit" name="new" value="<?=$d['id']?>">
-                                                            <i class="fa fa-plus-square" aria-hidden="true"></i> New
-                                                            </button>
-                                                            <?php
-                                                            break;
-                                                            case 1:
-                                                                ?>
-                                                                <button  class="btn btn-warning" type="submit" name="undo_new" value="<?=$d['id']?>">
-                                                                <i class="fa fa-minus-square" aria-hidden="true"></i> Undo New
-                                                                </button>
-                                                                <?php
-                                                                break;
-                                                    }
-                                                    break;
-                                                    
-                                                    ?>
-                                                    
-                                                    <?php  
-                                                    }
+                                             
                                                 
-                                                    ?>
-                                               
-
-                                            </form>
+                                                <Button type="button" class="btn btn-success"  name="edit" id="edit<?=$d['id']?>" onclick="makeEditable(<?=$d['id']?>)"><i class="bi bi-pencil-square"></i></Button>
+                                                <button type="button" style="display:none" class="btn btn-warning" name="" onclick="ajax(<?=$d['id']?>)" id="update<?=$d['id']?>" value="<?=$d['id']?>" >Update</button>
+                                                &nbsp; 
+                                                <Button type="submit" class="btn btn-danger" name="delete" value="<?= $d['id']?>"><i class="bi bi-trash"></i>Delete</Button>
+                                                <a href="../categories?token=<?=$d['id']?>">
+                                                    <button type="button" class="btn btn-tool"><i class="bi bi-eye-fill"></i></button>
+                                                </a>
+                                                </form>
                                         </td>
                                     </tr>
                                  
@@ -332,10 +266,49 @@
     }  
 </script> -->
 <script>
+    function makeEditable(db_id)
+    {   
+        $(".edit").attr("disabled",true);
+        $(".btn-success").show();  
+        $(".btn-warning").hide();
+        $("#category"+db_id).attr("disabled",false)
+        //$("#"+editBtn+counter).hide();
+        //$("#"+updateBtn+counter).show().attr('name',updateBtnName).html('Update');  
+        $("#edit"+db_id).hide();
+        $("#update"+db_id).show().attr('name',"change")  
+        $("#category"+db_id).focus();      
+    }
     setTimeout(function()
     {
         $(".alert").hide();
     },3000);
+    function ajax(id)
+    {
+        
+        var category = $("#category"+id).val();
+        $.ajax(
+        {
+          url:'cat_ajax.php',
+          type:"POST",
+          data:{change:id,
+                category:category
+                     
+              },
+              success : function(data)
+                {
+                  if(data.trim()=="updated")
+                  {
+                    $(".btn-warning").hide();
+                    $(".btn-success").show();  
+                    $("#category"+id).attr("disabled",true);
+                  }
 
+                },
+                error:
+                function(err){} 
+
+      });
+
+    }
     
 </script>

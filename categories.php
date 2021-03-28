@@ -2,11 +2,25 @@
 require_once "header.php";
 require_once "navbar.php";
 
-
+if(isset($_GET['token']))
+{
+    $id=$_GET['token'];
+    $sql="select * from category where id='$id'";
+    if($res=$conn->query($sql))
+    {
+        if($res->num_rows)
+        {
+           
+                $category=$res->fetch_assoc();
+           
+            
+        }
+    }
+}
 ?>
 
 <div style="text-align: center;" class="jumbotron">
-    <h1>Incontinence</h1>
+    <h1><?=$category['category']?></h1>
 </div>
 
 <div class="container">
