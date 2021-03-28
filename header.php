@@ -44,6 +44,8 @@ if($res=$conn->query($sql))
     <link rel="stylesheet" href="assets/css/font.css">
     <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/categories.css">
+
     
     <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png">
@@ -62,6 +64,8 @@ if($res=$conn->query($sql))
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,500;1,400&display=swap" rel="stylesheet">
 </head>
 
 <body>

@@ -1,0 +1,25 @@
+#categories_h1 {
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+#categories_img1 {
+    height: auto;
+    width: 100%;
+}
+
+#categories_img2 {
+    height: auto;
+    width: 100%;
+    font-weight: bold;
+}
+
+#categories_list{
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+/* a:link {
+    color: white;
+  } */
