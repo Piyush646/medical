@@ -324,7 +324,7 @@ function registration($f_name,$l_name,$contact,$email,$pass,$type,$conn)
         }
 }
 
-function upload_image($files)
+function imimage($files)
 {
      $uploadedFile = 'err';
      //print_r ($_FILES);
@@ -1172,7 +1172,7 @@ function coupon_code($coupon_code,$conn)
 
 
 //upload
-function upload_images2($files,$conn,$table,$id_col,$column,$id,$images,$url)
+function upload_images2($files,$conn,$table,$id_col,$column,$id,$images)
 {
     print_r($_FILES);
 	if(isset($_FILES[$images]))
@@ -1189,7 +1189,7 @@ function upload_images2($files,$conn,$table,$id_col,$column,$id,$images,$url)
                 $newFileName=$filename.time().".".$ext;
                 if(move_uploaded_file($file_tmp=$_FILES[$images]["tmp_name"][$key],"uploads/".$newFileName))
                 {
-                    $sql="insert into $table($id_col, $column) values($id,'$url/$newFileName')";
+                    $sql="insert into $table($id_col, $column) values($id,'$newFileName')";
                     if($conn->query($sql)===true)
                     {
                         $status=true;

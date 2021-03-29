@@ -115,7 +115,8 @@
  
     }
         
-    $sql="select * from product";
+    $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
+    ,category.caty from product join category on product.category = category.id";
     $result =  $conn->query($sql);
     if($result->num_rows)
     {
@@ -125,6 +126,7 @@
         }
     }
  
+    
 
     
 ?>
@@ -178,6 +180,7 @@
                              <th style="  text-align: center;">Name</th>
                              <th style="  text-align: center;">Price</th>
                              <th style="  text-align: center;">Product Code</th>
+                             <th style="  text-align: center;">Category</th>
                              <th style="  text-align: center;">Short Description</th>
                             <th>Action</th>
                         </tr>
@@ -198,6 +201,7 @@
                                          <td style="  text-align: center; " id="name<?=$i?>"><?=$d['name'];?></td> 
                                          <td style="  text-align: center; " id="price<?=$i?>"><?=$d['price'];?></td>
                                          <td style="  text-align: center; " id="code<?=$i?>"><?=$d['code'];?></td> 
+                                         <td style="  text-align: center; " id="cat<?=$i?>"><?=$d['caty']?></td>
                                          <td style="  text-align: center; " id="dis<?=$i?>"><?=$d['short_des'];?></td> 
                                          
                                            <td>

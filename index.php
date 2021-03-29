@@ -193,7 +193,7 @@ require 'navbar.php';
                         <a href="#" class="cd-btn">View <?=$caty['category']?></a>
                     </div>
                     <div class="cd-half-width cd-img-container">
-                        <img src="assets/<?=$caty['cat_img']?>">
+                        <img src="admin/uploads/<?=$caty['cat_img']?>">
                     </div>
                 </li>
             <?php
@@ -226,7 +226,7 @@ require 'navbar.php';
             ?>
                 <li class="<?=$selected?>">
                     <a href="#<?=$j?>">
-                        <span><img src="assets/<?=$caty['cat_logo']?>" alt=""></span>
+                        <span><img src="admin/uploads/<?=$caty['cat_logo']?>" alt=""></span>
                         <?=$caty['category']?>
                     </a>
                 </li>
@@ -318,7 +318,7 @@ require 'navbar.php';
             <div class="col-lg-3 col-sm-6">
                 <div class="cv-product-box">
                     <div class="cv-product-img">
-                        <img src="<?= $n['img'] ?>" alt="image" class="img-fluid" />
+                        <img src="admin/uploads/<?= $n['img'] ?>" alt="image" class="img-fluid" />
                         <div class="cv-product-button">
                             <a href="product-single?token=<?= $n['id'] ?>" class="cv-btn"><svg
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
@@ -523,7 +523,7 @@ require 'navbar.php';
             <div class="col-lg-3 col-sm-6">
                 <div class="cv-product-box">
                     <div class="cv-product-img">
-                        <img alt="image" class="img-fluid" src="<?= $f['img'] ?>" />
+                        <img alt="image" class="img-fluid" src="admin/uploads/<?= $f['img'] ?>" />
                         <div class="cv-product-button">
                             <a href="product-single?token=<?= $f['id'] ?>" class="cv-btn"><svg
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">

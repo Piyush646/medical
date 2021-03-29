@@ -6,6 +6,7 @@ if(isset($_GET['token']))
 {
     $id=$_GET['token'];
     $sql="select * from category where id='$id'";
+    $caty = "";
     if($res=$conn->query($sql))
     {
         if($res->num_rows)
@@ -15,7 +16,25 @@ if(isset($_GET['token']))
            
             
         }
+        $caty = $category['id'];
     }
+
+    $sql="select * from product where category='$caty' and new=1";
+    if ($res = $conn->query($sql)) {
+        if ($res->num_rows) {
+            while ($row = $res->fetch_assoc()) {
+                $id = $row['id'];
+                $new[$row['id']] = $row;
+                $sql = "select img from product_img where p_id='$id' limit 1";
+                if ($result = $conn->query($sql)) {
+                    if ($result->num_rows) {
+                        $new[$row['id']]['img'] = $result->fetch_assoc()['img'];
+                    }
+                }
+            }
+        }
+    }
+
 }
 ?>
 
@@ -24,22 +43,27 @@ if(isset($_GET['token']))
 </div>
 
 <div class="container">
-
+    <?php
+        if(isset($new))
+        {
+            foreach($new as $n)
+            {
+        
+        
+    ?>
     <div class="mt-lg-5 mt-sm-5">
         <div class="row bg-light" style="padding : 20px;">
             <div class="col-md-5 col-xs-5" style="margin-bottom :10px;">
-                <img id="categories_img1" src="assets/images/medical_img1.jpg">
+                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>">
             </div>
 
             <div class="col-md-7 col-xs-5" style="padding-left:40px">
-                <h3 id="categories_h1">Premium Disposable Bed Incontinence Sheets 60x90cm</h3>
+                <h3 id="categories_h1"><?=$n['name']?></h3>
                 <div style="margin-top: 15px">
-                    <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code: SIL6090</h5>
+                    <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
                     <ol>
-                        <li id="categories_list">High Quality Disposable Incontinence Bed Pads with absorption capacity of 1400ml</li>
-                        <li id="categories_list" >Soft Top Layer offers greater comfort to the user</li>
-                        <li id="categories_list">SAP embedded absorption Layer : Increases capacity and retains fluids longer</li>
-                        <li id="categories_list">60x90 cm : Ideal size for placement on Bed. For convenience packed in Individual Packs of 25</li>
+                        <li id="categories_list"><?=$n['dis']?></li>
+                        
                     </ol>
                 </div>
                 <a href="contact.php" class="btn btn-primary">Get Quote</a>
@@ -47,30 +71,22 @@ if(isset($_GET['token']))
         </div>
     </div>
 
-    <div class="mt-lg-5 mt-sm-5">
-        <div class="row bg-light" style="padding : 20px;">
-            <div class="col-md-7 col-xs-5" style="padding-left:20px;margin-bottom:10px">
-                <h3 id="categories_h1">Premium Disposable Bed Incontinence Sheets 60x90cm</h3>
-                <div style="margin-top: 15px">
-                    <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code: SIL6090</h5>
-                    <ol>
-                        <li id="categories_list">High Quality Disposable Incontinence Bed Pads with absorption capacity of 1400ml</li>
-                        <li id="categories_list" >Soft Top Layer offers greater comfort to the user</li>
-                        <li id="categories_list">SAP embedded absorption Layer : Increases capacity and retains fluids longer</li>
-                        <li id="categories_list">60x90 cm : Ideal size for placement on Bed. For convenience packed in Individual Packs of 25</li>
-                    </ol>
+    <?php
+            }
+        }
+        else
+        {
+            ?>
+                <div class="alert alert-danger">
+                    No record found!
                 </div>
-                <a href="contact.php" class="btn btn-primary float-right">Get Quote</a>
-            </div>
-
-            <div class="col-md-5 col-xs-5">
-                <img id="categories_img1" src="assets/images/medical_img1.jpg">
-            </div>
-
             
-        </div>
-    </div>
+            <?php
+        }
+    
+    ?>
 </div>
+<br>
 
 
 <script src="javascript/categories%20us.js"></script>

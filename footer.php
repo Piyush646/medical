@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-foot-box cv-foot-logo">
-                        <img src="<?=$contact['logo']?>" alt="image" class="img-fluid"/>
+                        <img src="assets/images/400dpiLogo.png" alt="image" class="img-fluid"/>
                         <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quis nostrud exercitation ullamco laboris.</p> -->
                     
                     </div>

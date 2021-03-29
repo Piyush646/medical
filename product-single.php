@@ -104,7 +104,7 @@ if (isset($_GET['token'])) {
                                         ?>
                                         <div class="carousel-item <?=$active?>">
                                             <!-- <div class="cv-pro-thumb-img"> -->
-                                                <img src="<?= $pop['img'] ?>" alt="image" class="img-fluid">
+                                                <img src="admin/uploads/<?= $pop['img'] ?>" alt="image" class="img-fluid">
                                             <!-- </div> -->
                                         </div>
 

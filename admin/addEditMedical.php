@@ -13,11 +13,12 @@
             $short_des=$conn->real_escape_string($_POST['short_des']);
             $price=$_POST['eprice'];
             $code=$_POST['ecode'];
-            $sql="insert into  product(name,price,dis, short_des, status,code) values ('$name','$price','$dis', '$short_des', 1, $code)";
+            $category = $_POST['category'];
+            $sql="insert into  product(name,price,dis, short_des, status,code,category) values ('$name','$price','$dis', '$short_des', 1, $code,'$category')";
             if($conn->query($sql))
                 {
                     $insert_id = $conn->insert_id;
-                    if(upload_images2($_FILES,$conn,"product_img","p_id","img",$insert_id,"projectFile",$website_link."/admin/uploads"))
+                    if(upload_images2($_FILES,$conn,"product_img","p_id","img",$insert_id,"projectFile"))
                     {
                         $resMember = "all_true";
                     }else
@@ -28,7 +29,7 @@
                 }
                else
             {
-                $errorMember=true;
+                $errorMember=$conn->error;
             }
         }
         
@@ -41,10 +42,11 @@
                     $short_des=$conn->real_escape_string($_POST['short_des']);
                     $price=$_POST['eprice'];
                     $code=$_POST['ecode'];
-                    $sql="update product set name='$name',price='$price',dis='$dis', short_des='$short_des', code='$code' where id='$id'";
+                    $category=$_POST['category'];
+                    $sql="update product set name='$name',price='$price',dis='$dis', short_des='$short_des', code='$code',category='$category' where id='$id'";
                     if($conn->query($sql))
                     {
-                        if(upload_images2($_FILES,$conn,"product_img","p_id","img",$id,"projectFile",$website_link."/admin/uploads"))
+                        if(upload_images2($_FILES,$conn,"product_img","p_id","img",$id,"projectFile"))
                         {
                             $resMember = "all_true";
                         }else
@@ -88,6 +90,27 @@
                     echo $conn->error;
                 }
 }
+
+$sql = "SELECT caty from category";
+  if($result = $conn->query($sql))
+  {
+    while($row = $result->fetch_assoc())
+    {
+        $cat[]=$row; 
+    }       
+  }
+  else
+  {
+    echo "error : ".$conn->error;
+  }
+
+  $sqll = "SELECT * from product order by id desc limit 1";
+    if($result = $conn->query($sqll))
+    {
+       
+            $happy[]=$result->fetch_assoc();
+        
+    }
 ?>
 
 <style>
@@ -129,7 +152,35 @@
               <form method="post" enctype="multipart/form-data">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-6"><br>
+                    <div class="col-sm-6">
+                        <br>
+                        <label>Category of Equipment :</label>
+                        <select class="form-control" aria-label="Default select example" name="category">
+                          <?php
+                              if(isset($cat))
+                              {
+                                
+                                foreach ($cat as $category)
+                                {                               
+                                  foreach($happy as $birthday)
+                                  {
+                                    $sel = "";                                                                                                             
+                                    if($birthday['category']  == $category['id'])
+                                    {
+                                          $sel = "selected";
+                                    }
+                                  
+                                  ?>
+                                  <option value="<?=$category['id']?>" <?=$sel?>><?=$category['caty']?></option>
+                                  <?php
+                                  }
+                                }
+                              }
+                          ?>
+
+                          </select>
+                    </div>
+                    <div class="col-sm-12"><br>
                          <label >Name of Equipment :</label>
                         <input type="text" class="form-control" id="" name="ename" value="<?=$productList['name']?>">
     
@@ -179,7 +230,7 @@
                                     ?>
                                     <div class="col-md-2" id="file<?=$counter?>">
                                         <div class="col-md-8">
-                                            <a href="<?=$file['img']?>" target="_blank"><img src="<?=$file['img']?>" width="100px" height="100px"/></a>
+                                            <a href="./uploads/<?=$file['img']?>" target="_blank"><img src="./uploads/<?=$file['img']?>" width="100px" height="100px"/></a>
                                         </div>
                                         <div class="col-md-1">
                                             <button type="button" class="btn btn-danger" onclick="deleteFile(<?=$file['id']?>,'file<?=$counter?>')"><i class="fa fa-trash"></i></button>
