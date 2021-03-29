@@ -145,7 +145,7 @@
         <ol class="breadcrumb">
             <li>
                 <div class="pull-right">
-                    <a title="" href="http://localhost/medical/admin/addEditMedical.php" class="btn btn-primary" ><i class="fa fa-plus"></i></a> 
+                    <a title="" href="./addEditMedical.php" class="btn btn-primary" ><i class="fa fa-plus"></i></a> 
                     <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Rebuild"><i class="fa fa-refresh"></i></a>
                 </div>
             </li>
@@ -206,7 +206,7 @@
                                          
                                            <td>
                                              <form method="post">
-                                                <a href="http://localhost/medical/admin/addEditMedical.php?token=<?=$d['id']?>" name="confirm" type="button" class="btn btn-success"  onclick="" value="<?=$d['id'] ?>">
+                                                <a href="./addEditMedical.php?token=<?=$d['id']?>" name="confirm" type="button" class="btn btn-success"  onclick="" value="<?=$d['id'] ?>">
                                                             <i class="fa fa-edit">Edit</i>
                                                 </a>
                                                 <button  class="btn btn-danger" type="submit" name="delete" value="<?=$d['id']?>">

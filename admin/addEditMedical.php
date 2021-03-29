@@ -89,9 +89,27 @@
                 {
                     echo $conn->error;
                 }
-}
 
-$sql = "SELECT caty from category";
+                $sql = "select * from category";
+                if($result = $conn->query($sql))
+                {
+                    if($result->num_rows)
+                    {
+                        while($row = $result->fetch_assoc())
+                        {
+                            $catee[]=$row;
+                        }
+                         
+                    }
+                     
+                }else
+                {
+                    echo $conn->error;
+                }
+
+}else{
+
+$sql = "SELECT * from category";
   if($result = $conn->query($sql))
   {
     while($row = $result->fetch_assoc())
@@ -111,6 +129,7 @@ $sql = "SELECT caty from category";
             $happy[]=$result->fetch_assoc();
         
     }
+}
 ?>
 
 <style>
@@ -176,6 +195,24 @@ $sql = "SELECT caty from category";
                                   }
                                 }
                               }
+                              else if(isset($_GET['token']))
+                              {
+                                foreach ($catee as $c)
+                                {                               
+                                 
+                                    $sel = "";                                                                                                             
+                                    if($productList['category']  == $c['id'])
+                                    {
+                                          $sel = "selected";
+                                    }
+                                  
+                                  ?>
+                                  <option value="<?=$c['id']?>" <?=$sel?>><?=$c['caty']?></option>
+                                  <?php
+                                 
+                                }
+                              }
+                                
                           ?>
 
                           </select>
