@@ -39,7 +39,7 @@ if(isset($_GET['token']))
 ?>
 
 <div style="text-align: center;" class="jumbotron">
-    <h1><?=$category['category']?></h1>
+    <h1><?=$category['caty']?></h1>
 </div>
 
 <div class="container">

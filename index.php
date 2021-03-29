@@ -189,8 +189,8 @@ require 'navbar.php';
             ?>
                 <li class="<?=$select?>">
                     <div class="cd-half-width">
-                        <h2><?=$caty['category']?></h2>
-                        <a href="#" class="cd-btn">View <?=$caty['category']?></a>
+                        <h2><?=$caty['caty']?></h2>
+                        <a href="#" class="cd-btn">View <?=$caty['caty']?></a>
                     </div>
                     <div class="cd-half-width cd-img-container">
                         <img src="admin/uploads/<?=$caty['cat_img']?>">
@@ -227,7 +227,7 @@ require 'navbar.php';
                 <li class="<?=$selected?>">
                     <a href="#<?=$j?>">
                         <span><img src="admin/uploads/<?=$caty['cat_logo']?>" alt=""></span>
-                        <?=$caty['category']?>
+                        <?=$caty['caty']?>
                     </a>
                 </li>
             <?php

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2021 at 01:03 AM
+-- Generation Time: Mar 29, 2021 at 09:48 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `category` text DEFAULT NULL,
+  `caty` text DEFAULT NULL,
   `cat_logo` text DEFAULT NULL,
   `cat_img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -38,8 +38,8 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `category`, `cat_logo`, `cat_img`) VALUES
-(1, 'Face Masks', 'icon_masks.png', 'masks.png'),
+INSERT INTO `category` (`id`, `caty`, `cat_logo`, `cat_img`) VALUES
+(1, 'Face Masks', 'icon_masks.png', 'masks.jpg'),
 (2, 'Shoe Covers', 'icon_shoes.png', 'shoes.png'),
 (3, 'Mob Caps', 'icon_mob.png', 'mob.png'),
 (4, 'Incontinence', 'icon_incon.png', 'incontinence.png'),
@@ -85,17 +85,21 @@ CREATE TABLE `product` (
   `code` bigint(50) NOT NULL,
   `new` bigint(20) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `short_des` text NOT NULL
+  `short_des` text NOT NULL,
+  `category` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`name`, `price`, `dis`, `status`, `id`, `code`, `new`, `time_stamp`, `short_des`) VALUES
-('Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '5', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted\r\n\r\n\r\nDermastrip Hypo-Allergenic Washproof Plasters\r\n7 Types (Sizes) of Plasters Included in a divider tray\r\nBox of 100\r\nIndividually wrapped and Sterile', 2, 21, 345667097, 1, '2021-03-21 10:08:25', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted'),
-('Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '4', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)\r\n\r\nPre-injection - Skin Cleansing Swabs\r\n100 per box\r\n70% Isopropyl Alcohol\r\nApprox Size of Swabs: 3x3cm', 2, 22, 119117, 1, '2021-03-21 10:10:10', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)'),
-('1234567', '123456', '1234567sad', 0, 23, 123456, 0, '2021-03-21 10:10:23', '');
+INSERT INTO `product` (`name`, `price`, `dis`, `status`, `id`, `code`, `new`, `time_stamp`, `short_des`, `category`) VALUES
+('Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '5', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted\r\n\r\n\r\nDermastrip Hypo-Allergenic Washproof Plasters\r\n7 Types (Sizes) of Plasters Included in a divider tray\r\nBox of 100\r\nIndividually wrapped and Sterile', 2, 21, 345667097, 1, '2021-03-29 19:03:08', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '4'),
+('Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '4', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)\r\n\r\nPre-injection - Skin Cleansing Swabs\r\n100 per box\r\n70% Isopropyl Alcohol\r\nApprox Size of Swabs: 3x3cm', 2, 22, 119117, 1, '2021-03-29 19:03:18', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '6'),
+('1234567', '123456', '1234567sad', 0, 23, 123456, 0, '2021-03-21 10:10:23', '', NULL),
+('Face Masks', '100', 'Well Ventilated Face masks', 1, 24, 101, 1, '2021-03-29 19:03:30', 'Contact for more details', '1'),
+('Oral Swaps', '10', 'Good product can invest your money', 1, 25, 102, 1, '2021-03-29 19:03:25', 'These are used for swapping your tongue and teeth!', '6'),
+('Covers Of Shoes', '2', 'Contact For More details', 1, 26, 103, 1, '2021-03-29 19:04:08', 'These covers will protect your foot from harmful viruses', '2');
 
 -- --------------------------------------------------------
 
@@ -114,8 +118,11 @@ CREATE TABLE `product_img` (
 --
 
 INSERT INTO `product_img` (`id`, `p_id`, `img`) VALUES
-(12, 21, 'https://dubuddy.in/medical/admin/uploads/download.1616321281.jpeg'),
-(13, 22, 'https://dubuddy.in/medical/admin/uploads/41UC0vv2ZjL._AC_.1616321410.jpg');
+(12, 21, '1616321281.jpeg'),
+(13, 22, '41UC0vv2ZjL._AC_.1616321410.jpg'),
+(14, 24, 'masks.jpg'),
+(15, 25, 'oral.1617033535.png'),
+(16, 26, 'shoes.1617042534.png');
 
 -- --------------------------------------------------------
 
@@ -322,13 +329,13 @@ ALTER TABLE `home_slider`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `product_img`
 --
 ALTER TABLE `product_img`
-  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `quote`
