@@ -220,10 +220,10 @@ $sql = "SELECT * from category";
                     <div class="col-sm-12"><br>
                          <label >Name of Equipment :</label>
                         <input type="text" class="form-control" id="" name="ename" value="<?=$productList['name']?>">
-    
+
                     </div>
                      <div class="col-sm-6"><br>
-                        <label >Price :</label>
+                        <label >Price (in Dollars) :</label>
                         <input type="text" class="form-control" id="" name="eprice" value="<?=$productList['price']?>">
                         
                     </div>

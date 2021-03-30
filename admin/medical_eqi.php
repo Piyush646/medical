@@ -178,7 +178,7 @@
                         <tr>
                              
                              <th style="  text-align: center;">Name</th>
-                             <th style="  text-align: center;">Price</th>
+                             <th style="  text-align: center;">Price (in Dollars)</th>
                              <th style="  text-align: center;">Product Code</th>
                              <th style="  text-align: center;">Category</th>
                              <th style="  text-align: center;">Short Description</th>
