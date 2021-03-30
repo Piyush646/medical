@@ -103,9 +103,9 @@ if (isset($_GET['token'])) {
                                                 }
                                         ?>
                                         <div class="carousel-item <?=$active?>">
-                                            <!-- <div class="cv-pro-thumb-img"> -->
+                                            <div class="cv-pro-thumb-img">
                                                 <img src="admin/uploads/<?= $pop['img'] ?>" alt="image" class="img-fluid">
-                                            <!-- </div> -->
+                                            </div>
                                         </div>
 
                                         <?php
@@ -135,7 +135,7 @@ if (isset($_GET['token'])) {
                 <div class="col-sm-7">
                     <div class="cv-prod-content">
                         <h2 class="cv-price-title"><?= $product['name'] ?></h2>
-                        <p class="cv-pdoduct-price"><?= $product['price'] ?></p>
+                        <p class="cv-pdoduct-price">$<?= $product['price'] ?></p>
                         <!-- <div class="cv-prod-category">
                                     <span>Category :</span>
                                     <a href="#" class="cv-prod-category"> Face Mask</a>,

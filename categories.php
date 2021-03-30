@@ -45,33 +45,63 @@ if(isset($_GET['token']))
 <div class="container">
     <?php
         if(isset($new))
-        {
+        {$i=1;
             foreach($new as $n)
             {
+                if($i%2!=0)
+                {
+                    ?>
+                    <div class="mt-lg-5 mt-sm-5">
+                        <div class="row bg-light" style="padding : 20px;">
+                            <div class="col-md-5 col-xs-5" style="margin-bottom :10px;">
+                                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>">
+                            </div>
+                
+                            <div class="col-md-7 col-xs-5" style="padding-left:40px">
+                                <h3 id="categories_h1"><?=$n['name']?></h3>
+                                <div style="margin-top: 15px">
+                                    <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
+                                    <ol>
+                                        <li id="categories_list"><?=$n['dis']?></li>
+                                        
+                                    </ol>
+                                </div>
+                                <a href="contact.php" class="btn btn-primary">Get Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }else{
+        ?>
         
-        
-    ?>
-    <div class="mt-lg-5 mt-sm-5">
-        <div class="row bg-light" style="padding : 20px;">
-            <div class="col-md-5 col-xs-5" style="margin-bottom :10px;">
-                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>">
-            </div>
+    
 
-            <div class="col-md-7 col-xs-5" style="padding-left:40px">
-                <h3 id="categories_h1"><?=$n['name']?></h3>
-                <div style="margin-top: 15px">
-                    <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
-                    <ol>
-                        <li id="categories_list"><?=$n['dis']?></li>
-                        
-                    </ol>
-                </div>
-                <a href="contact.php" class="btn btn-primary">Get Quote</a>
-            </div>
-        </div>
-    </div>
+                    <div class="mt-lg-5 mt-sm-5">
+                        <div class="row bg-light" style="padding : 20px;">
+                            
+
+                            <div class="col-md-7 col-xs-5" style="padding-left:40px">
+                                <h3 id="categories_h1"><?=$n['name']?></h3>
+                                <div style="margin-top: 15px">
+                                    <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
+                                    <ol>
+                                        <li id="categories_list"><?=$n['dis']?></li>
+                                        
+                                    </ol>
+                                </div>
+                                <a href="contact.php" class="btn btn-primary">Get Quote</a>
+                            </div>
+
+                            <div class="col-md-5 col-xs-5" style="margin-bottom :10px;">
+                                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>">
+                            </div>
+                        </div>
+                    </div>
 
     <?php
+                }
+                $i++;
+
             }
         }
         else

@@ -52,7 +52,7 @@
                         </ul>
                     </div>
                 </div> -->
-                <div class="col-lg-5 col-md-6" >
+                <div class="col-lg-4 col-md-6" >
                     <div class="cv-foot-box cv-foot-contact" style="padding-left:15em;">
                         <h2>Useful Links</h2>
                         <ul>
@@ -64,7 +64,7 @@
                     </div>
                     
                 </div>
-                <div class="col-lg-3 col-md-6" >
+                <div class="col-lg-4 col-md-6" >
                     <div class="cv-foot-box cv-foot-contact" style="padding-left:3em;">
                         <h2>Contact</h2>
                         <ul>

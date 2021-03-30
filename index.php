@@ -250,7 +250,7 @@ require 'navbar.php';
 <!-- banner end -->
 <!-- feature start -->
 
-
+<br><br>
     <section class="features-section">
         <div id="particle-container"></div>
   		<div class="container">

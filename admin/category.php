@@ -188,7 +188,6 @@ if($res=$conn->query($sql))
                              
                              <th style="  text-align: center;">S No.</th>
                              <th style="  text-align: center;width:50%" width="50%">Category</th>
-                             <th style="  text-align: center;display:none;" id="cat_image" >Image</th>
                              <th >Action</th>
                         </tr>
                     </thead>
@@ -209,7 +208,6 @@ if($res=$conn->query($sql))
                                         <td style="  text-align: center; " width="50%" id="price<?=$i?>">
                                             <input type="text" class="form-control edit" name="category" id="category<?=$d['id']?>" style="width:50%" value="<?=$d['caty'];?>" disabled>
                                         </td>
-                                        <td id="cat_image<?=$d['id']?>" class="photo" style="display:none;"><input type="file" class="form-control" name="projectFile[]" id="photo" /></td>
                                          
                                         <td>
                                              <form method="post">
@@ -292,63 +290,31 @@ if($res=$conn->query($sql))
     {
         
         var category = $("#category"+id).val();
-        var photo = $("#photo").val();
-        if(photo != '')
+        $.ajax(
         {
-            $.ajax(
-            {
-            url:'cat_ajax.php',
-            type:"POST",
-            data:{change:id,
-                    category:category,
-                    photo:photo
-                        
+          url:'cat_ajax.php',
+          type:"POST",
+          data:{change:id,
+                category:category
+                     
+              },
+              success : function(data)
+                {
+                  if(data.trim()=="updated")
+                  {
+                    $(".btn-warning").hide();
+                    $(".btn-success").show();  
+                    $("#category"+id).attr("disabled",true);
+                    $("#cat_image").hide();
+                    $("#cat_image"+id).hide();   
+                  }
+
                 },
-                success : function(data)
-                    {
-                    if(data.trim()=="updated")
-                    {
-                        $(".btn-warning").hide();
-                        $(".btn-success").show();  
-                        $("#category"+id).attr("disabled",true);
-                        $("#cat_image").hide();
-                        $("#cat_image"+id).hide();   
-                        console.log($("#photo").val());
-                    }
+                error:
+                function(err){} 
 
-                    },
-                    error:
-                    function(err){} 
+      });
 
-            });
-        }else
-        {
-            $.ajax(
-            {
-            url:'cat_ajax.php',
-            type:"POST",
-            data:{change:id,
-                    category:category
-                        
-                },
-                success : function(data)
-                    {
-                    if(data.trim()=="updated")
-                    {
-                        $(".btn-warning").hide();
-                        $(".btn-success").show();  
-                        $("#category"+id).attr("disabled",true);
-                        $("#cat_image").hide();
-                        $("#cat_image"+id).hide();   
-                        console.log($("#photo").val());
-                    }
-
-                    },
-                    error:
-                    function(err){} 
-
-            });
-        }
     }
     
 </script>

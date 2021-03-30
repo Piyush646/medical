@@ -1169,7 +1169,50 @@ function coupon_code($coupon_code,$conn)
     return $response;
 }
 
-
+//update images
+function update_image($conn,$table,$id_col,$column,$id,$images)
+{
+     
+	if(isset($_FILES[$images]))
+    {
+        $extension=array("jpeg","jpg","png","gif","pdf","PDF");
+        foreach($_FILES[$images]["tmp_name"] as $key=>$tmp_name) 
+        {
+            $file_name=$_FILES[$images]["name"][$key];
+            $file_tmp=$_FILES[$images]["tmp_name"][$key];
+            $ext=pathinfo($file_name,PATHINFO_EXTENSION); 
+            if(in_array(strtolower($ext),$extension)) 
+            {
+                $filename=basename($file_name,$ext);
+                $newFileName=$filename.time().".".$ext;
+                if(move_uploaded_file($file_tmp=$_FILES[$images]["tmp_name"][$key],"uploads/".$newFileName))
+                {
+                    // $sql="update $table($id_col, $column) values($id,'$newFileName')";
+                     $sql="update $table set $column='$newFileName' where $id_col='$id'";
+                    if($conn->query($sql)===true)
+                    {
+                        $status=true;
+                    }
+                    else
+                    {
+                        $status=false;
+                        break;
+                    }
+                }
+                else
+                {
+                    $status=false;
+                    break;
+                }
+            }
+            else 
+            {
+                array_push($error,"$file_name, ");
+            }
+        }
+        return $status;
+    }
+}
 
 //upload
 function upload_images2($files,$conn,$table,$id_col,$column,$id,$images)

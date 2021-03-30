@@ -55,7 +55,7 @@ if ($res = $conn->query($sql)) {
                             ?>
                                     <div class="cv-product-box cv-product-item cv-hand">
                                         <div class="cv-product-img">
-                                            <img src="<?=$s['img']?>" alt="image" class="img-fluid" />
+                                            <img src="admin/uploads/<?=$s['img']?>" alt="image" class="img-fluid" />
                                             <div class="cv-product-button">
                                                 <a href="product-single?token=<?=$s['id']?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
@@ -93,7 +93,7 @@ if ($res = $conn->query($sql)) {
                                         <div class="cv-product-data">
                                             <a href="javascript:;" class="cv-price-title"><?=$s['name']?></a> 
                                             <p><?=$n['short_des']?></p>
-                                            <p class="cv-pdoduct-price"><?=$s['price']?></p>
+                                            <p class="cv-pdoduct-price">$<?=$s['price']?></p>
                                             <!-- <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p> -->
                                         </div>
                                     </div>
