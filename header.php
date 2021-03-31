@@ -18,16 +18,20 @@ if(isset($_POST['subscribe']))
 $sql = 'select * from web_config';
 if ($res = $conn->query($sql)) {
   if ($res->num_rows) {
-    $contact = $res->fetch_assoc();
+    $about  =  $contact = $res->fetch_assoc();
   }
 }
 
-$sql="select * from web_config";
+$sql ="Select * from category";
 if($res=$conn->query($sql))
 {
     if($res->num_rows)
     {
-        $about=$res->fetch_assoc();
+        while($row = $res->fetch_assoc())
+        {
+            $category[]=$row;
+        }
+        
     }
 }
 ?>

@@ -1,3 +1,5 @@
+ 
+
 <div class="cv-top-header bg-primary">
     <div class="container ">
         <div class="row " style="text-align: center">
@@ -17,12 +19,12 @@
     </div>
 </div>
 
-<div class="cv-main-header bg-info">
+<div class="cv-main-header  ">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-9">
                 <div class="cv-logo">
-                    <a href="index"><img style="height:10em; margin-left:30px;" src="assets/images/400dpiLogo.png" alt="image"
+                    <a href="index"><img style="height:10em; margin-left:30px;" src="admin/uploads/<?=$about['logo']?>" alt="image"
                             class="img-fluid" /></a>
                 </div>
             </div>
@@ -31,13 +33,38 @@
                     <div class="cv-menu">
                         <ul>
                             <li><a href="index">Home</a></li>
-                            <li><a href="shop">Shop</a></li>
+                            <li class="cv-children-menu"><a href="#!" >Products</a>
+                            <?php
+                                if(isset($category)) 
+                                {
+                                    ?>
+                                      <ul class="cv-sub-mmenu">
+                                    
+                                    <?php
+                                    foreach($category as $caty)
+                                    {
+                            ?>
+                                            <li>
+                                                            <a href="categories?token=<?=$caty['id']?>"><?= ucfirst($caty['caty'])?></a>                                
+                                                    </li>
+                            <?php
+                                    }
+                                    ?>
+                                           
+                                    </ul>
+                                    <?php
+                                }
+                            ?>
+                              
+                            
+                            
+                           </li>
                             <li><a href="about">About</a></li>
                             <li><a href="contact">Contact US</a></li>
 
 
                         </ul>
-                    </div>
+                    </div>  
                     <div class="cv-toggle-nav">
                         <span></span>
                         <span></span>

@@ -19,7 +19,7 @@ if(isset($_GET['token']))
         $caty = $category['id'];
     }
 
-    $sql="select * from product where category='$caty' and new=1";
+    $sql="select * from product where category='$caty' and status=1";
     if ($res = $conn->query($sql)) {
         if ($res->num_rows) {
             while ($row = $res->fetch_assoc()) {
@@ -107,7 +107,7 @@ if(isset($_GET['token']))
         else
         {
             ?>
-                <div class="alert alert-danger">
+                <div class="alert alert-danger" style="background-color: #3cbcff">
                     No record found!
                 </div>
             

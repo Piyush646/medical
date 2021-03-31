@@ -177,11 +177,10 @@
                     <thead>
                         <tr>
                              
-                             <th style="  text-align: center;">Name</th>
-                             <th style="  text-align: center;">Price (in Dollars)</th>
-                             <th style="  text-align: center;">Product Code</th>
-                             <th style="  text-align: center;">Category</th>
-                             <th style="  text-align: center;">Short Description</th>
+                             <th >Name</th>
+                             <th >Price</th>
+                             <th >Product Code</th>
+                             <th >Category</th> 
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -198,11 +197,10 @@
                                      <tr> 
                                          
                                          
-                                         <td style="  text-align: center; " id="name<?=$i?>"><?=$d['name'];?></td> 
-                                         <td style="  text-align: center; " id="price<?=$i?>"><?=$d['price'];?></td>
-                                         <td style="  text-align: center; " id="code<?=$i?>"><?=$d['code'];?></td> 
-                                         <td style="  text-align: center; " id="cat<?=$i?>"><?=$d['caty']?></td>
-                                         <td style="  text-align: center; " id="dis<?=$i?>"><?=$d['short_des'];?></td> 
+                                         <td  id="name<?=$i?>"><?=$d['name'];?></td> 
+                                         <td  id="price<?=$i?>"><?=$d['price'];?></td>
+                                         <td  id="code<?=$i?>"><?=$d['code'];?></td> 
+                                         <td  id="cat<?=$i?>"><?=$d['caty']?></td> 
                                          
                                            <td>
                                              <form method="post">
@@ -215,7 +213,7 @@
                                                 <?php
                                                 $status=$d['status'];
                                                 switch($status)
-                                                {
+                                                {   
                                                     case 0:
                                                         
                                                         ?>
@@ -229,28 +227,9 @@
                                                         <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
                                                         <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
                                                         </button>
-                                                        <button  class="btn btn-info" type="submit" name="feature" value="<?=$d['id']?>">
-                                                        <i class="fa fa-plus-square" aria-hidden="true"></i> Feature
-                                                        </button>
+                                                       
                                                         <?php
-                                                        $new=$d['new'];
-                                                        switch($new)
-                                                        {
-                                                            case 1:
-                                                                ?>
-                                                                <button  class="btn btn-warning" type="submit" name="undo_new" value="<?=$d['id']?>">
-                                                                <i class="fa fa-minus-square" aria-hidden="true"></i> Undo New
-                                                                </button>
-                                                                <?php
-                                                                break;
-                                                            case 0:
-                                                                ?>
-                                                                <button  class="btn btn-info" type="submit" name="new" value="<?=$d['id']?>">
-                                                                <i class="fa fa-plus-square" aria-hidden="true"></i> New
-                                                                </button>
-                                                                <?php
-                                                                break;   
-                                                        }
+                                                        
                                                         break;
                                                         
                                                     case 2:
@@ -258,28 +237,9 @@
                                                     <button  class="btn btn-warning" type="submit" name="hide" value="<?=$d['id']?>">
                                                         <i class="fa fa-eye-slash" aria-hidden="true"></i> Hide
                                                         </button>
-                                                    <button  class="btn btn-primary" type="submit" name="unfeature" value="<?=$d['id']?>">
-                                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Unfeature
-                                                     </button> 
+                                                    
                                                     <?php
-                                                    $new=$d['new'];
-                                                    switch($new)
-                                                    {
-                                                        case 0:
-                                                            ?>
-                                                            <button  class="btn btn-info" type="submit" name="new" value="<?=$d['id']?>">
-                                                            <i class="fa fa-plus-square" aria-hidden="true"></i> New
-                                                            </button>
-                                                            <?php
-                                                            break;
-                                                            case 1:
-                                                                ?>
-                                                                <button  class="btn btn-warning" type="submit" name="undo_new" value="<?=$d['id']?>">
-                                                                <i class="fa fa-minus-square" aria-hidden="true"></i> Undo New
-                                                                </button>
-                                                                <?php
-                                                                break;
-                                                    }
+                                                    
                                                     break;
                                                     
                                                     ?>
