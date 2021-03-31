@@ -138,6 +138,19 @@ if($res=$conn->query($sql))
     }
 }
 
+    if(isset($_POST['cat']) && !empty($_POST['cat']) && (isset($_POST['add'])))
+    {
+        $caty = $_POST['cat'];
+        $sql="insert into category(caty) values('$caty')";
+        if($conn->query($sql))
+        {
+            $resMember=true;   
+        }
+        else
+        {
+            $errorMember=$conn->error;
+        }
+    }
     
 ?>
 
@@ -179,7 +192,23 @@ if($res=$conn->query($sql))
                 
             }
         ?>
-      
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <p>Add Category:</p>
+                                </div>
+                                <div class="col-lg-5">
+                                    <input type="text" class="form-control newField" name="cat" placeholder="Category Name" required="">
+                                </div>
+                                <div class="col-lg-1">
+                                    <button class="btn btn-outline-primary" name="add" id="add">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             <div class="box">
               <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">

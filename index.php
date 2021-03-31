@@ -46,7 +46,7 @@ if($res=$conn->query($sql))
     }
 }
 
-$sql ="Select * from category";
+$sql ="Select * from category order by id asc limit 6";
 if($res=$conn->query($sql))
 {
     if($res->num_rows)
