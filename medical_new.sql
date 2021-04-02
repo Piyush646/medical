@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2021 at 04:03 PM
+-- Generation Time: Apr 02, 2021 at 05:09 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -39,16 +39,16 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `caty`, `cat_logo`, `cat_img`) VALUES
-(1, 'Face Masks', 'icon_masks.png', 'masks.jpg'),
+(1, 'Face Masks', 'icon_masks.png', 'masks.png'),
 (2, 'Shoe Covers', 'icon_shoes.png', 'shoes.png'),
 (3, 'Mob Caps', 'icon_mob.png', 'mob.png'),
 (4, 'Incontinence', 'icon_incon.png', 'incontinence.png'),
 (5, 'Gloves', 'icon_gloves.png', 'gloves.png'),
 (6, 'Oral Swaps', 'icon_oral.png', 'oral.png'),
 (7, 'First-Aid Accessories', 'first_logo.jpeg', 'first_aid.jpg'),
-(8, 'Disinfectant', 'disinfectant_logo.jpeg', 'disinfectant.jpg'),
-(9, 'Alcohol Free Sanitizers', 'sanitizer_logo.jpeg', 'sanitizer.jpg'),
-(10, 'Bed Bath', 'bed_logo.jpeg', 'bedbath.jpg');
+(8, 'Disinfectant', 'disinfectant_logo.jpeg', 'disinfectant.png'),
+(9, 'Alcohol Free Sanitizers', 'sanitizer_logo.jpeg', 'sanitizer.png'),
+(10, 'Bed Bath', 'bed_logo.jpeg', 'bedbath.png');
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,6 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`name`, `price`, `dis`, `status`, `id`, `code`, `new`, `time_stamp`, `short_des`, `category`) VALUES
 ('Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '5', '<ul>\r\n	<li>Dermastrip Washproof Plasters - Pack of 100-7 Sizes</li>\r\n	<li>Assorted Dermastrip Hypo-Allergenic Washproof Plasters</li>\r\n	<li>7 Types (Sizes) of Plasters Included in a divider tray Box of 100 Individually wrapped and Sterile</li>\r\n</ul>\r\n', 1, 21, 345667097, 1, '2021-04-02 13:53:31', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '7'),
 ('Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '4', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)\r\n\r\nPre-injection - Skin Cleansing Swabs\r\n100 per box\r\n70% Isopropyl Alcohol\r\nApprox Size of Swabs: 3x3cm', 1, 22, 119117, 1, '2021-04-02 13:03:40', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '7'),
-('1234567', '123456', '1234567sad', 0, 23, 123456, 1, '2021-04-02 13:03:40', '', NULL),
 ('Face Masks', '100', 'Well Ventilated Face masks', 1, 24, 101, 1, '2021-04-02 13:03:40', 'Contact for more details', '1'),
 ('Oral Swaps', '10', 'Good product can invest your money', 1, 25, 102, 1, '2021-04-02 13:03:40', 'These are used for swapping your tongue and teeth!', '6'),
 ('Covers Of Shoes', '2', 'Contact For More details', 1, 26, 103, 1, '2021-04-02 13:03:40', 'These covers will protect your foot from harmful viruses', '2'),
