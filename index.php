@@ -17,8 +17,19 @@ if($res=$conn->query($sql))
         
     }
 }
-
- 
+$category  = [];
+$sql ="Select * from category order by id asc limit 6";
+if($res=$conn->query($sql))
+{
+    if($res->num_rows)
+    {
+        while($row = $res->fetch_assoc())
+        {
+            $category[]=$row;
+        }
+        
+    }
+}
 
 ?>
 

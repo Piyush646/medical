@@ -171,8 +171,8 @@ if (isset($_GET['token'])) {
             </div>
             <div class="cv-shop-tab">
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab"
-                        aria-selected="true">description</a>
+                    <a class="nav-link active" data-toggle="tab" href="#" role="tab"
+                        aria-selected="true">Description</a>
                     <!-- <a class="nav-link" data-toggle="tab" href="#cv-pro-review" role="tab" aria-selected="false">Review</a> -->
                 </div>
                 <div class="tab-content cv-tab-content" id="nav-tabContent">
