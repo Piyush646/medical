@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2021 at 09:48 PM
+-- Generation Time: Apr 02, 2021 at 01:59 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -44,7 +44,8 @@ INSERT INTO `category` (`id`, `caty`, `cat_logo`, `cat_img`) VALUES
 (3, 'Mob Caps', 'icon_mob.png', 'mob.png'),
 (4, 'Incontinence', 'icon_incon.png', 'incontinence.png'),
 (5, 'Gloves', 'icon_gloves.png', 'gloves.png'),
-(6, 'Oral Swaps', 'icon_oral.png', 'oral.png');
+(6, 'Oral Swaps', 'icon_oral.png', 'oral.png'),
+(7, 'Injections', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,7 @@ INSERT INTO `product` (`name`, `price`, `dis`, `status`, `id`, `code`, `new`, `t
 ('Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '5', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted\r\n\r\n\r\nDermastrip Hypo-Allergenic Washproof Plasters\r\n7 Types (Sizes) of Plasters Included in a divider tray\r\nBox of 100\r\nIndividually wrapped and Sterile', 2, 21, 345667097, 1, '2021-03-29 19:03:08', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '4'),
 ('Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '4', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)\r\n\r\nPre-injection - Skin Cleansing Swabs\r\n100 per box\r\n70% Isopropyl Alcohol\r\nApprox Size of Swabs: 3x3cm', 2, 22, 119117, 1, '2021-03-29 19:03:18', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '6'),
 ('1234567', '123456', '1234567sad', 0, 23, 123456, 0, '2021-03-21 10:10:23', '', NULL),
-('Face Masks', '100', 'Well Ventilated Face masks', 1, 24, 101, 1, '2021-03-29 19:03:30', 'Contact for more details', '1'),
+('Face Masks', '1', 'Well Ventilated Face masks', 1, 24, 101, 1, '2021-03-30 09:23:27', 'Contact for more details', '1'),
 ('Oral Swaps', '10', 'Good product can invest your money', 1, 25, 102, 1, '2021-03-29 19:03:25', 'These are used for swapping your tongue and teeth!', '6'),
 ('Covers Of Shoes', '2', 'Contact For More details', 1, 26, 103, 1, '2021-03-29 19:04:08', 'These covers will protect your foot from harmful viruses', '2');
 
@@ -317,7 +318,7 @@ ALTER TABLE `web_config`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `home_slider`

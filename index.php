@@ -17,19 +17,19 @@ if($res=$conn->query($sql))
         
     }
 }
-$category  = [];
-$sql ="Select * from category order by id asc limit 6";
-if($res=$conn->query($sql))
-{
-    if($res->num_rows)
-    {
-        while($row = $res->fetch_assoc())
-        {
-            $category[]=$row;
-        }
+
+// $sql ="Select * from category order by id asc limit 10";
+// if($res=$conn->query($sql))
+// {
+//     if($res->num_rows)
+//     {
+//         while($row = $res->fetch_assoc())
+//         {
+//             $category[]=$row;
+//         }
         
-    }
-}
+//     }
+// }
 
 ?>
 
@@ -139,7 +139,7 @@ require 'navbar.php';
 
     </div>
 </div>
-<section class="cd-hero">
+<section class="cd-hero" style="margin-bottom:100px">
 <?php
     if(isset($category))
     {   
@@ -162,7 +162,7 @@ require 'navbar.php';
                 <li class="<?=$select?>">
                     <div class="cd-half-width">
                         <h2><?=$caty['caty']?></h2>
-                        <a href="#" class="cd-btn">View <?=$caty['caty']?></a>
+                        <a href="categories?token=<?=$caty['id'] ?>" class="cd-btn">View <?=$caty['caty']?></a>
                     </div>
                     <div class="cd-half-width cd-img-container">
                         <img src="admin/uploads/<?=$caty['cat_img']?>">
@@ -170,7 +170,7 @@ require 'navbar.php';
                 </li>
             <?php
             $i++;
-            if($i>6)
+            if($i>10)
             {
                 $i=1;
             }
@@ -179,10 +179,11 @@ require 'navbar.php';
         ?>
             </ul>
 
-        <div class="cd-slider-nav">
+        <div class="cd-slider-nav" >
+            <center>
             <nav>
                 <span class="cd-marker item-1"></span>
-                <ul>
+                <ul style="align-items:center;justify-content:center">
         <?php
         $j=0;
         foreach($category as $caty)
@@ -204,7 +205,7 @@ require 'navbar.php';
                 </li>
             <?php
             $j++;
-            if($j>5)
+            if($j>9)
             {
                 $j=0;
                 
@@ -213,6 +214,7 @@ require 'navbar.php';
         ?>
                 </ul>
             </nav>
+            </center>
         </div>
         <?php
     }
@@ -223,7 +225,7 @@ require 'navbar.php';
 <!-- banner end -->
 <!-- feature start -->
 
-<br><br>
+<br><br><br><br><br>
     <section class="features-section">
         <div id="particle-container"></div>
   		<div class="container">

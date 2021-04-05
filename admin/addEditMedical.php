@@ -237,7 +237,7 @@ $sql = "SELECT * from category";
                     <div class="col-md-10"> 
                         <div class="form-group">
                             <label style="margin-left:5px">Description</label><br> 
-                            <textarea id="edis" name="edis" class="form-control" rows="3" style="resize: none;width: 100%;" required><?=$productList['dis']?></textarea>
+                            <textarea  id="edis" name="edis" class="form-control" rows="3" style="resize: none;width: 100%;" required><?=$productList['dis']?></textarea>
                         </div> 
                     </div>
                 </div>
@@ -326,6 +326,8 @@ $sql = "SELECT * from category";
     require_once 'js-links.php';
 ?>
 <script>
+     CKEDITOR.replace( 'edis' );
+
     setTimeout(function()
     {
         $(".alert").hide();
@@ -381,5 +383,6 @@ $sql = "SELECT * from category";
         
         })
     } 
+    
 </script>
  
