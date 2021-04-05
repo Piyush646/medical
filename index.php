@@ -139,7 +139,7 @@ require 'navbar.php';
 
     </div>
 </div>
-<section class="cd-hero" style="margin-bottom:100px">
+<section class="cd-hero" id="honey">
 <?php
     if(isset($category))
     {   
@@ -197,7 +197,7 @@ require 'navbar.php';
                 $selected="";
             }
             ?>
-                <li class="<?=$selected?>">
+                <li class="<?=$selected?>" id="honey<?=$j?>">
                     <a href="#<?=$j?>">
                         <span><img src="admin/uploads/<?=$caty['cat_logo']?>" alt=""></span>
                         <?=$caty['caty']?>
