@@ -16,10 +16,10 @@
         $facebook=$conn->real_escape_string($_POST['facebook']);
         $twitter=$conn->real_escape_string($_POST['twitter']);
         $insta=$conn->real_escape_string($_POST['instagram']);
-        $img=upload_image($_FILES);
+        $img=imimage($_FILES);
         if($img!="err")
         {
-        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$website_link/admin/uploads/$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta'"; 
+        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta'"; 
          
         }
         else
@@ -146,7 +146,7 @@
                         <div class="row" style="margin-bottom:20px"><br> 
                             <div class="col-md-4" id="file<?=$counter?>">
                                 <div class="col-md-8" style="margin-top:15px">
-                                    <a href="<?=$about['logo']?>" target="_blank"><img src="<?=$about['logo']?>"
+                                    <a href="uploads/<?=$about['logo']?>" target="_blank"><img src="uploads/<?=$about['logo']?>"
                                             width="100px" height="100px" /></a>
                                 </div>
                             </div>

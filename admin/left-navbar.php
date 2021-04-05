@@ -53,11 +53,11 @@
             <i class="fa fa-info-circle" aria-hidden="true"></i> <span>About</span>
             </a>
          </li>
-         <li>
+         <!-- <li>
             <a href="home_slider">
             <i class="fa fa-image" aria-hidden="true"></i> <span>Home Slider</span>
             </a>
-         </li>
+         </li> -->
          <li>
             <a href="quote">
             <i class="fa fa-quote-left" aria-hidden="true"></i><span>Quote</span>
