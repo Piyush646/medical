@@ -5,7 +5,7 @@
             </div>
             <div class="col-md-2">
                 <div class="cv-head-contact">
-                    <h3 style="font-weight:bold;color:white"><i class="fa fa-phone" aria-hidden="true"></i> <?=$contact['phn']?></h3>
+                    <h3 style="font-weight:bold;color:white"><i class="bi bi-telephone-fill"></i> <?=$contact['phn']?></h3>
                 </div>
             </div>
             <div class="col-md-2">

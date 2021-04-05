@@ -19,7 +19,7 @@ if ($res = $conn->query($sql)) {
                 <div class="cv-breadcrumb-box">
                     <h1>Contact us</h1>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index">Home</a></li>
                         <li>Contact us</li>
                     </ul>
                 </div>
@@ -44,7 +44,7 @@ if ($res = $conn->query($sql)) {
                     <ul>
                         <li>
                             <div class="cv-contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 513.64 513.64">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 513.64 513.64" style="margin-top:15px" >
                                     <path d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72
                                         c-51.2-12.8-120.32-79.36-133.12-133.12c-7.68-23.041,7.68-48.641,30.72-56.32c33.28-10.24,43.52-53.76,17.92-79.36l-71.68-71.68
                                         c-20.48-17.92-51.2-17.92-69.12,0l-48.64,48.64c-48.64,51.2,5.12,186.88,125.44,307.2c120.32,120.32,256,176.641,307.2,125.44
@@ -53,12 +53,12 @@ if ($res = $conn->query($sql)) {
                             </div>
                             <div class="cv-contact-text">
                                 <h3>Contact No.</h3>
-                                <p><?= $contact['phn'] ?></p>
+                                <p><a href="tel:<?= $contact['phn'] ?>"><?= $contact['phn'] ?></a></p>
                             </div>
                         </li>
                         <li>
                             <div class="cv-contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="margin-top:15px">
                                     <path d="M10.688,95.156C80.958,154.667,204.26,259.365,240.5,292.01c4.865,4.406,10.083,6.646,15.5,6.646
                                             c5.406,0,10.615-2.219,15.469-6.604c36.271-32.677,159.573-137.385,229.844-196.896c4.375-3.698,5.042-10.198,1.5-14.719
                                             C494.625,69.99,482.417,64,469.333,64H42.667c-13.083,0-25.292,5.99-33.479,16.438C5.646,84.958,6.313,91.458,10.688,95.156z"></path>
@@ -79,10 +79,10 @@ if ($res = $conn->query($sql)) {
                             </div>
                             <div class="cv-contact-text">
                                 <h3>Email</h3>
-                                <p><?= $contact['email'] ?></p>
+                                <p><a href="mailto:<?= $contact['email'] ?>"><?= $contact['email'] ?></a></p>
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <div class="cv-contact-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                     <path d="M256,0C161.896,0,85.333,76.563,85.333,170.667c0,28.25,7.063,56.26,20.49,81.104L246.667,506.5
@@ -95,10 +95,10 @@ if ($res = $conn->query($sql)) {
                                 <h3>Location</h3>
                                 <p><?= $contact['location'] ?></p>
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <div class="cv-contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="margin-top:15px">
                                     <path d="M10.688,95.156C80.958,154.667,204.26,259.365,240.5,292.01c4.865,4.406,10.083,6.646,15.5,6.646
                                             c5.406,0,10.615-2.219,15.469-6.604c36.271-32.677,159.573-137.385,229.844-196.896c4.375-3.698,5.042-10.198,1.5-14.719
                                             C494.625,69.99,482.417,64,469.333,64H42.667c-13.083,0-25.292,5.99-33.479,16.438C5.646,84.958,6.313,91.458,10.688,95.156z"></path>
