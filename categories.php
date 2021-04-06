@@ -12,11 +12,11 @@ if(isset($_GET['token']))
         if($res->num_rows)
         {
            
-                $category=$res->fetch_assoc();
+                $categoty_data=$res->fetch_assoc();
            
             
         }
-        $caty = $category['id'];
+        $caty = $categoty_data['id'];
     }
 
     $sql="select * from product where category='$caty' and status=1";
@@ -38,13 +38,13 @@ if(isset($_GET['token']))
 }
 ?>
 <style>
-    li {
+   .categories_list {
     list-style: disc inside !important;
     }
 
 </style>
 <div style="text-align: center;" class="jumbotron">
-    <h1><?=$category['caty']?></h1>
+    <h1><?=$categoty_data['caty']?></h1>
 </div>
 
 <div class="container">
@@ -67,7 +67,7 @@ if(isset($_GET['token']))
                                 <div style="margin-top: 15px">
                                     <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
                                     <ol>
-                                        <li id="categories_list"><?=$n['dis']?></li>
+                                        <li class="categories_list" id="categories_list"><?=$n['dis']?></li>
                                         
                                     </ol>
                                 </div>
@@ -89,10 +89,10 @@ if(isset($_GET['token']))
                                 <h3 id="categories_h1"><?=$n['name']?></h3>
                                 <div style="margin-top: 15px">
                                     <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
-                                    
-                                        <p id="categories_list" ><?=html_entity_decode($n['dis'])  ?></p>
+                                    <ol>
+                                        <li class="categories_list" id="categories_list"><?=$n['dis']?></li>
                                         
-                                    
+                                    </ol>
                                 </div>
                                 <a href="contact.php" class="btn btn-primary">Get Quote</a>
                             </div>
@@ -122,9 +122,7 @@ if(isset($_GET['token']))
     ?>
 </div>
 <br>
-
-
-<script src="javascript/categories%20us.js"></script>
+ 
 
 
 

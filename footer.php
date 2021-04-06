@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="footer-content">
-                            <p>Int Trade Global - Copyright © 2021              &emsp; &emsp; &emsp;Credits link – Vaagha.com</p>
+                            <p>Int Trade Global - Copyright © 2021 </p>
                         </div>
                     </div>
                 </div>

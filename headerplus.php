@@ -14,7 +14,7 @@
             <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/media.css">
             <!--<link rel="stylesheet" type="text/css" href="/css/hero-slider.css">-->
             <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/style.css?v=1.1">
-            <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/jquery.modal.min.css" media="screen">
+            <!-- <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/jquery.modal.min.css" media="screen"> -->
 
             <title>Int Trade Global</title> 
 		
