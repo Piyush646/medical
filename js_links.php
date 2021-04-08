@@ -16,9 +16,34 @@
         <script type="text/javascript" src="https://omnitex-uk.com/wp-content/themes/omnitex/js/jquery.modal.min.js"></script>
         <script src="https://omnitex-uk.com/wp-content/themes/omnitex/js/carousel-vertical.js"></script>
         <!-- <script src="https://omnitex-uk.com/wp-content/themes/omnitex/js/script.js"></script> -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+        <!-- <script src="assets/js/jquery.magnific-popup.min.js"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<script>
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+ 
+</script>
 
+<?php
+    if(!isset($_COOKIE['accept_cookie']))
+    {
+        ?>
+            <script>
+                $(document).ready(function()
+                {
+                            $("#cookieBtn").click()
+                            console.log("showing")
+                })
+             
+            </script>
+        
+        <?php
+    }
+?>
         
 </body>

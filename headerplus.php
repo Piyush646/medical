@@ -4,9 +4,8 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
             <!-- Bootstrap & Google Fonts CDN, Favicon Link -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;family=Titillium+Web:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
-            <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+            <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+             <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
             <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
             
             <!-- CSS -->

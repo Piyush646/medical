@@ -3,35 +3,27 @@ require_once "lib/core.php";
 require_once 'headerplus.php';
 
 
-if(isset($_POST['subscribe']))
-{
-    $email=$conn->real_escape_string($_POST['email']);
-    $sql="insert into subscribe(email) values ('$email')";
-    if($conn->query($sql)===true)
-    {
-    }
-    else
-    {
+if (isset($_POST['subscribe'])) {
+    $email = $conn->real_escape_string($_POST['email']);
+    $sql = "insert into subscribe(email) values ('$email')";
+    if ($conn->query($sql) === true) {
+    } else {
     }
 }
 
 $sql = 'select * from web_config';
 if ($res = $conn->query($sql)) {
-  if ($res->num_rows) {
-    $about  =  $contact = $res->fetch_assoc();
-  }
+    if ($res->num_rows) {
+        $about  =  $contact = $res->fetch_assoc();
+    }
 }
 
-$sql ="Select * from category";
-if($res=$conn->query($sql))
-{
-    if($res->num_rows)
-    {
-        while($row = $res->fetch_assoc())
-        {
-            $category[]=$row;
+$sql = "Select * from category";
+if ($res = $conn->query($sql)) {
+    if ($res->num_rows) {
+        while ($row = $res->fetch_assoc()) {
+            $category[] = $row;
         }
-        
     }
 }
 ?>
@@ -51,7 +43,7 @@ if($res=$conn->query($sql))
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/categories.css">
 
-    
+
     <!-- <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png">
@@ -74,26 +66,66 @@ if($res=$conn->query($sql))
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
-<!-- Latest compiled and minified JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
     <style>
         @media only screen and (max-width: 900px) {
-            .cd-hero{
-                margin-bottom:150px;
+            .cd-hero {
+                margin-bottom: 150px;
             }
-            #honey9{
-                margin-top:17px;
+
+            #honey9 {
+                margin-top: 17px;
             }
+        }
+
+        .modal-backdrop {
+            background-color: transparent !important;
+        }
+
+        .modal-content {
+            border: none !important;
+        }
+
+        .modal-dialog {
+            margin: 0;
+        }
+
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 100%
             }
+
+            .modal {
+                max-width: 100%
+            }
+
+        }
+
+        body.modal-open {
+            overflow: auto;
+        }
+
+        .modal.in {
+            pointer-events: none;
+        }
+
+        .modal-content {
+            pointer-events: all;
+        }
+
+        .modal-backdrop {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
-<!-- preloader start -->
-<div class="cv-ellipsis">
-    <div class="cv-preloader">
-        <div></div>
+    <!-- preloader start -->
+    <div class="cv-ellipsis">
+        <div class="cv-preloader">
+            <div></div>
+        </div>
     </div>
-</div>
-<!-- preloader end -->
-<!-- main wrapper start -->
-<div class="cv-main-wrapper">
+    <!-- preloader end -->
+    <!-- main wrapper start -->
+    <div class="cv-main-wrapper">

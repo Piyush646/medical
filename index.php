@@ -328,7 +328,7 @@ require 'navbar.php';
                                 <p><?= $contact['email'] ?></p>
                             </div>
                         </li>
-                        <li>
+                        <!-- <li>
                             <div class="cv-contact-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg"style="margin-top:25%" viewBox="0 0 512 512">
                                     <path d="M256,0C161.896,0,85.333,76.563,85.333,170.667c0,28.25,7.063,56.26,20.49,81.104L246.667,506.5
@@ -341,7 +341,7 @@ require 'navbar.php';
                                 <h3>Location</h3>
                                 <p><?= $contact['location'] ?></p>
                             </div>
-                        </li>
+                        </li> -->
                         <li>
                             <div class="cv-contact-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg"  style="margin-top:25%" viewBox="0 0 512 512">
@@ -381,9 +381,7 @@ require 'navbar.php';
                         <input type="text" placeholder="Enter your subject" name="subject" id="subject" class="require" />
                         <textarea placeholder="Message here" name="message" id="message" class="require"></textarea>
                         <button type="button" class="cv-btn submitForm" name="submit" onclick="insert()">submit</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                        Launch demo modal
-                                    </button>
+                         
 
                         <div class="response"></div>
                     </form>
@@ -399,43 +397,3 @@ require_once "js_links.php";
 
 <!-- Button trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"  >
-  <div class="modal-dialog modal-dialog-centered" role="document" >
-    <div class="modal-content" style="border-radius: 50px; background-color: #585858">
-      
-      <div class="modal-body" style="background-image: url('assets/cookie.jpg');opacity:0.8">
-        <div class="container">
-            <div class="row" style="margin-left:50px">
-                <div class="col-lg-11 col-md-11">
-
-                </div>
-                <div class="col-lg-1 col-md-1">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="row" style="margin-top:20px;margin-bottom:20px">
-                    <div class="col-lg-2 col-md-2" style="padding-right:0;padding-left:0;font-family: 'Poppins', sans-serif;"></div>
-                    <div class="col-lg-8 col-md-8" style="padding-left:0">
-                        <center>
-                            <p style="color:black;align-items: center;justify-content:center;font-size:larger">We use cookies to    make your  experiences<br>
-                            on this website better!</p>
-                        </center>
-                    </div>
-                    <div class="col-lg-2 col-md-2"></div>
-                </div>
-                <div class="row" style="margin-bottom:20px">
-                    <div class="col-lg-12 col-md-12" style="margin-left:70px">
-                        <center>
-                            <button class="btn btn-warning" style="border-radius: 50px">Accept Cookies</button>
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
