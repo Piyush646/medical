@@ -38,8 +38,9 @@ if(isset($_GET['token']))
 }
 ?>
 <style>
-   ul>li {
-    list-style: disc inside !important;
+   .featires ul>li {
+    list-style: disc inside;
+    margin-left: 18px;
     }
 
 </style>

@@ -79,8 +79,8 @@ if (isset($_GET['token'])) {
                                             }
                                             ?>
 
-                                        <li data-target="#carousel" data-slide-to="<?=$i?>" <?=$active?>
-                                            style="width: 10px;height:10px;border-radius: 50%"></li>
+                                        <!-- <li data-target="#carousel" data-slide-to="<?=$i?>" <?=$active?>
+                                            style="width: 10px;height:10px;border-radius: 50%"></li> -->
                                         <?php
                                                 $i++;
                                         }
