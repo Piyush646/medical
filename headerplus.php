@@ -9,10 +9,10 @@
             <link rel="icon" type="image/png" sizes="16x16" href="assets/logo.png">
             
             <!-- CSS -->
-            <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/modal-video.min.css">
-            <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/media.css">
+            <!-- <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/modal-video.min.css"> -->
+            <!-- <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/media.css"> -->
             <!--<link rel="stylesheet" type="text/css" href="/css/hero-slider.css">-->
-            <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/style.css?v=1.1">
+            <!-- <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/style.css?v=1.1"> -->
             <!-- <link rel="stylesheet" type="text/css" href="https://omnitex-uk.com/wp-content/themes/omnitex/css/jquery.modal.min.css" media="screen"> -->
 
             <title>Int Trade Global</title> 
@@ -30,10 +30,8 @@ img.emoji {
 	background: none !important;
 	padding: 0 !important;
 }
-</style>
-	<link rel="stylesheet" id="wp-block-library-css" href="https://omnitex-uk.com/wp-includes/css/dist/block-library/style.min.css?ver=5.6" media="all">
-<link rel="stylesheet" id="contact-form-7-css" href="https://omnitex-uk.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.2" media="all">
-<link rel="stylesheet" id="omnitex-style-css" href="https://omnitex-uk.com/wp-content/themes/omnitex/style.css?ver=1.0.0" media="all">
+</style> 
+<link rel="stylesheet" href="./assets/css/style2.css?ver=1.0.0" media="all">
  
   
 <style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}

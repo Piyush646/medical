@@ -38,7 +38,7 @@ if(isset($_GET['token']))
 }
 ?>
 <style>
-   .categories_list {
+   ul>li {
     list-style: disc inside !important;
     }
 
@@ -66,10 +66,11 @@ if(isset($_GET['token']))
                                 <h3 id="categories_h1"><?=$n['name']?></h3>
                                 <div style="margin-top: 15px">
                                     <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
-                                    <ol>
-                                        <li class="categories_list" id="categories_list"><?=$n['dis']?></li>
+                                    <div class="featires">
+                                        <?=html_entity_decode($n['dis'])?>
+                                    </div>
                                         
-                                    </ol>
+                                  
                                 </div>
                                 <a href="contact.php" class="btn btn-primary">Get Quote</a>
                             </div>
@@ -89,10 +90,11 @@ if(isset($_GET['token']))
                                 <h3 id="categories_h1"><?=$n['name']?></h3>
                                 <div style="margin-top: 15px">
                                     <h5 style="font-weight: bold;color:#999999;margin-top:15px;margin-bottom:15px">Product Code:<?=$n['code']?></h5>
-                                    <ol>
-                                        <li class="categories_list" id="categories_list"><?=$n['dis']?></li>
-                                        
-                                    </ol>
+                               
+                                    <div class="featires">
+                                        <?=html_entity_decode($n['dis'])?>
+                                    </div>
+                                  
                                 </div>
                                 <a href="contact.php" class="btn btn-primary">Get Quote</a>
                             </div>
