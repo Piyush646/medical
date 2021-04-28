@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.4
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 28, 2021 at 01:37 AM
--- Server version: 5.6.49-cll-lve
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1
+-- Generation Time: Apr 28, 2021 at 12:58 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `caty` text,
-  `cat_logo` text,
-  `cat_img` text
+  `caty` text DEFAULT NULL,
+  `cat_logo` text DEFAULT NULL,
+  `cat_img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -82,16 +81,16 @@ INSERT INTO `home_slider` (`id`, `heading`, `sub_heading`, `image`, `link`, `sor
 --
 
 CREATE TABLE `product` (
-  `name` text,
-  `price` text,
-  `dis` text,
+  `name` text DEFAULT NULL,
+  `price` text DEFAULT NULL,
+  `dis` text DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `id` bigint(50) NOT NULL,
   `code` bigint(50) NOT NULL,
   `new` bigint(20) NOT NULL,
-  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `time_stamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `short_des` text NOT NULL,
-  `category` text
+  `category` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -199,10 +198,10 @@ INSERT INTO `product_img` (`id`, `p_id`, `img`) VALUES
 
 CREATE TABLE `quote` (
   `id` bigint(50) NOT NULL,
-  `name` text,
-  `email` text,
-  `subject` text,
-  `msg` text
+  `name` text DEFAULT NULL,
+  `email` text DEFAULT NULL,
+  `subject` text DEFAULT NULL,
+  `msg` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -233,10 +232,10 @@ INSERT INTO `quote` (`id`, `name`, `email`, `subject`, `msg`) VALUES
 
 CREATE TABLE `social_links` (
   `id` bigint(50) NOT NULL,
-  `icon` text,
-  `preview` text,
-  `platform` text,
-  `link` text
+  `icon` text DEFAULT NULL,
+  `preview` text DEFAULT NULL,
+  `platform` text DEFAULT NULL,
+  `link` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -255,7 +254,7 @@ INSERT INTO `social_links` (`id`, `icon`, `preview`, `platform`, `link`) VALUES
 
 CREATE TABLE `subscribe` (
   `id` bigint(50) NOT NULL,
-  `email` text
+  `email` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -275,10 +274,10 @@ INSERT INTO `subscribe` (`id`, `email`) VALUES
 --
 
 CREATE TABLE `users` (
-  `name` text,
+  `name` text DEFAULT NULL,
   `id` bigint(20) NOT NULL,
-  `email` text,
-  `password` text
+  `email` text DEFAULT NULL,
+  `password` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -296,11 +295,11 @@ INSERT INTO `users` (`name`, `id`, `email`, `password`) VALUES
 
 CREATE TABLE `web_config` (
   `id` bigint(50) NOT NULL,
-  `email` text,
+  `email` text DEFAULT NULL,
   `phn` bigint(20) DEFAULT NULL,
-  `address` text,
-  `location` text,
-  `logo` text,
+  `address` text DEFAULT NULL,
+  `location` text DEFAULT NULL,
+  `logo` text DEFAULT NULL,
   `message` text NOT NULL,
   `ab_line1` text NOT NULL,
   `ab_line2` text NOT NULL,
@@ -308,15 +307,17 @@ CREATE TABLE `web_config` (
   `ab_line4` text NOT NULL,
   `facebook` text NOT NULL,
   `twitter` text NOT NULL,
-  `instagram` text NOT NULL
+  `instagram` text NOT NULL,
+  `vat` varchar(50) NOT NULL,
+  `registration_number` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `web_config`
 --
 
-INSERT INTO `web_config` (`id`, `email`, `phn`, `address`, `location`, `logo`, `message`, `ab_line1`, `ab_line2`, `ab_line3`, `ab_line4`, `facebook`, `twitter`, `instagram`) VALUES
-(1, 'contact@int-trade.co.uk', 356789234, 'int-trade', 'lojxdjsjlm4y25', '1617112241_1617112044_1614707339_400dpiLogo.png', 'Int-Trade Global Ltd, a London based Healthcare consumables supplier is a preferred supplier to the NHS, GPs and Care Homes. Our Experience and Expertise ensures fully compliant, genuine and effective products are supplied in a timely fashion. As a well established supplier, you are guaranteed effective and genuine products that meet Industry Standards. \r\n\r\nFor Sales please contact on contact@int-trade.co.uk or drop inquiry at Contact-Us page.', 'Reputed Supplier to GP Clinics, Carehomes and NHS Trusts ', 'Reliable Supplier of Premium range of Incontinence Bed Pads & Mobility Consumables ', 'A Wide range of PPE Medical Grade Masks, Shoe Covers, Disposable Aprons, Mob Caps & Gloves', ' All products are manufactured in ISO 9001 & ISO 13485 Certified facilities', 'www.facebook', 'as', 'wsds');
+INSERT INTO `web_config` (`id`, `email`, `phn`, `address`, `location`, `logo`, `message`, `ab_line1`, `ab_line2`, `ab_line3`, `ab_line4`, `facebook`, `twitter`, `instagram`, `vat`, `registration_number`) VALUES
+(1, 'contact@int-trade.co.uk', 356789234, 'int-trade', 'lojxdjsjlm4y25', '1617112241_1617112044_1614707339_400dpiLogo.png', 'Int-Trade Global Ltd, a London based Healthcare consumables supplier is a preferred supplier to the NHS, GPs and Care Homes. Our Experience and Expertise ensures fully compliant, genuine and effective products are supplied in a timely fashion. As a well established supplier, you are guaranteed effective and genuine products that meet Industry Standards. \r\n\r\nFor Sales please contact on contact@int-trade.co.uk or drop inquiry at Contact-Us page.', 'Reputed Supplier to GP Clinics, Carehomes and NHS Trusts ', 'Reliable Supplier of Premium range of Incontinence Bed Pads & Mobility Consumables ', 'A Wide range of PPE Medical Grade Masks, Shoe Covers, Disposable Aprons, Mob Caps & Gloves', ' All products are manufactured in ISO 9001 & ISO 13485 Certified facilities', 'www.facebook', 'as', 'wsds', 'VATID28042021', 'RGN28042021');
 
 --
 -- Indexes for dumped tables

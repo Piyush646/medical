@@ -9,8 +9,8 @@ date_default_timezone_set('Asia/Kolkata');
 
 //for the database
 $servername = "localhost";
-$username = "root_dubuddy";
-$password = "tnske1z}U6zR";
+$username = "root";
+$password = "";
 $dbname = "dubuddy_medical";
 
   // $username = "root";

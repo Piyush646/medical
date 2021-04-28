@@ -342,7 +342,7 @@ require 'navbar.php';
                                 <p><?= $contact['location'] ?></p>
                             </div>
                         </li> -->
-                        <li>
+                        <!-- <li>
                             <div class="cv-contact-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg"  style="margin-top:25%" viewBox="0 0 512 512">
                                     <path d="M10.688,95.156C80.958,154.667,204.26,259.365,240.5,292.01c4.865,4.406,10.083,6.646,15.5,6.646
@@ -368,7 +368,7 @@ require 'navbar.php';
                                 <p><?= $contact['address'] ?></p>
                                     
                             </div>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

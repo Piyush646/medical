@@ -58,8 +58,8 @@ if(isset($_GET['token']))
                     ?>
                     <div class="mt-lg-5 mt-sm-5">
                         <div class="row bg-light" style="padding : 20px;">
-                            <div class="col-md-5 col-xs-5" style="margin-bottom :10px;" style="height :100%;width:100%;">
-                                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>"  style="height :400px;width:100%;">
+                            <div class="col-md-5 col-xs-5" style="margin-bottom :10px;">
+                                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>"  class="img-fluid" style="height: 400px; border: 3px solid #dedede; padding: 40px;">
                             </div>
                 
                             <div class="col-md-7 col-xs-5" style="padding-left:40px">
@@ -72,7 +72,7 @@ if(isset($_GET['token']))
                                         
                                   
                                 </div>
-                                <a href="contact.php" class="btn btn-primary">Get Quote</a>
+                                <a href="contact.php" class="btn btn-primary mt-4">Get Quote</a>
                             </div>
                         </div>
                     </div>
@@ -96,11 +96,11 @@ if(isset($_GET['token']))
                                     </div>
                                   
                                 </div>
-                                <a href="contact.php" class="btn btn-primary">Get Quote</a>
+                                <a href="contact.php" class="btn btn-primary mt-4">Get Quote</a>
                             </div>
 
                             <div class="col-md-5 col-xs-5" style="margin-bottom :10px;">
-                                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>"  style="height :400px;width:100%;">
+                                <img id="categories_img1" src="admin/uploads/<?=$n['img']?>" class="img-fluid" style="height: 400px; border: 3px solid #dedede; padding: 40px;">
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
                     <h3 style="font-weight:bold;color:white"><i class="bi bi-telephone-fill"></i> <?=$contact['phn']?></h3>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="cv-head-contact">
                     <h3 style="font-weight:bold;color:white"><i class="fa fa-envelope" aria-hidden="true"></i>  <?=$contact['email']?></h3>
                 </div>
@@ -60,7 +60,7 @@
                             
                            </li>
                             <li><a href="about">About</a></li>
-                            <li><a href="contact">Contact US</a></li>
+                            <li><a href="contact">Contact Us</a></li>
 
 
                         </ul>

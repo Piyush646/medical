@@ -16,15 +16,17 @@
         $facebook=$conn->real_escape_string($_POST['facebook']);
         $twitter=$conn->real_escape_string($_POST['twitter']);
         $insta=$conn->real_escape_string($_POST['instagram']);
+        $vat=$conn->real_escape_string($_POST['vat']);
+        $registration_number=$conn->real_escape_string($_POST['registration_number']);
         $img=imimage($_FILES);
         if($img!="err")
         {
-        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta'"; 
+        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta', vat = '$vat', registration_number = '$registration_number'"; 
          
         }
         else
         {
-            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta'";
+            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta', vat = '$vat', registration_number = '$registration_number'";
         } 
         if($conn->query($sql))
         {
@@ -113,6 +115,17 @@
                             <input type="text" class="form-control" id="" name="instagram" value="<?=$about['instagram']?>">
 
                         </div>
+
+                        <div class="col-sm-6"><br>
+                            <label>VAT :</label>
+                            <input type="text" class="form-control" id="" name="vat" value="<?=$about['vat']?>">
+                        </div>
+
+                        <div class="col-sm-6"><br>
+                            <label>Registration Number :</label>
+                            <input type="text" class="form-control" id="" name="registration_number" value="<?=$about['registration_number']?>">
+                        </div>
+
                         <div class="col-sm-12"><br>
                             <label>Message from Admin :</label><br>
                             <textarea style="width: 100%;height:120px;resize:none"
