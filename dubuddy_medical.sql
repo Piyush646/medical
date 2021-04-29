@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2021 at 09:47 AM
+-- Generation Time: Apr 29, 2021 at 11:53 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -107,7 +107,7 @@ CREATE TABLE `product` (
   `dis` text DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `id` bigint(50) NOT NULL,
-  `short_by` varchar(10) NOT NULL,
+  `sort_order` varchar(10) NOT NULL,
   `code` bigint(50) NOT NULL,
   `new` bigint(20) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -119,9 +119,9 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`name`, `price`, `dis`, `status`, `id`, `short_by`, `code`, `new`, `time_stamp`, `short_des`, `category`) VALUES
-('Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '5', '<ul>\r\n	<li>Dermastrip Washproof Plasters - Pack of 100-7 Sizes</li>\r\n	<li>Assorted Dermastrip Hypo-Allergenic Washproof Plasters</li>\r\n	<li>7 Types (Sizes) of Plasters Included in a divider tray Box of 100 Individually wrapped and Sterile</li>\r\n</ul>\r\n', 1, 21, '', 345667097, 1, '2021-04-02 19:19:48', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '10'),
-('Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '4', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)\r\n\r\nPre-injection - Skin Cleansing Swabs\r\n100 per box\r\n70% Isopropyl Alcohol\r\nApprox Size of Swabs: 3x3cm', 1, 22, '', 119117, 1, '2021-04-02 19:19:53', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '10'),
+INSERT INTO `product` (`name`, `price`, `dis`, `status`, `id`, `sort_order`, `code`, `new`, `time_stamp`, `short_des`, `category`) VALUES
+('Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '5', '<ul>\r\n	<li>Dermastrip Washproof Plasters - Pack of 100-7 Sizes</li>\r\n	<li>Assorted Dermastrip Hypo-Allergenic Washproof Plasters</li>\r\n	<li>7 Types (Sizes) of Plasters Included in a divider tray Box of 100 Individually wrapped and Sterile</li>\r\n</ul>\r\n', 1, 21, '1', 345667097, 1, '2021-04-29 09:21:40', 'Dermastrip Washproof Plasters - Pack of 100-7 Sizes Assorted', '10'),
+('Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '4', '<p>Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk) Pre-injection - Skin Cleansing Swabs 100 per box 70% Isopropyl Alcohol Approx Size of Swabs: 3x3cm</p>\r\n', 1, 22, '2', 119117, 1, '2021-04-29 09:30:34', 'Ezy-Aid 70% Isopropyl Alcohol Pre-Injection Swabs (100pk)', '10'),
 ('Ezy-Aid Box 24 Zinc Oxide Premium Tape', '16.77', 'Ezy-Aid Premium Zinc Oxide Tape\r\nManufactured with High Quality Materials to provide with a fantastic Combination of Extreme Strength yet Easy to Tear\r\nLatex Free. Ideal for use in Sporting Activities or to Secure Dressings / Medical Applications\r\nBox Pack of 24 -- Size: 1.25cm x 10Meters each roll\r\nSuper Saver Bulk Pack', 1, 27, '', 345667098, 1, '2021-04-02 19:19:58', 'Ezy-Aid Box 24 Zinc Oxide Premium Tape', '10'),
 ('Ezy-Aid Conforming Bandage', '2.99', '<ul>\r\n	<li>Premium Quality Ezy-Aid Conforming Bandages</li>\r\n	<li>Extremely High stretch, lightweight bandage for holding dressings in place Fray Resistant</li>\r\n	<li>3 Sizes Available:\r\n	<ul>\r\n		<li>5cm x 4.5M,</li>\r\n		<li>7.5cm x 4.5M,</li>\r\n		<li>10cm x 4.5M</li>\r\n	</ul>\r\n	</li>\r\n	<li>Individually Wrapped Rolls. Pack of 12</li>\r\n</ul>\r\n', 1, 28, '', 345667099, 1, '2021-04-02 19:20:02', '12pk Ezy-Aid Conforming Bandage 5cm, 7.5cm, 10cm - Premium Quality (5cm x 4.5Meters (12pk))', '10'),
 ('Ezy-Aid Cohesive Bandage - Blue', '14.55', 'Ezy-Aid Cohesive Bandage, Blue, 5 cm x 4.5 m, Pack of 24\r\nContains latex\r\nNon woven material\r\nGrips to itself and not skin\r\nNon adhesive\r\nIndividually wrapped', 1, 29, '', 345668001, 1, '2021-04-02 19:20:05', 'Ezy-Aid Cohesive Bandage, Blue, 5 cm x 4.5 m, Pack of 24', '10'),
