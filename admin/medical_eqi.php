@@ -119,7 +119,7 @@
 
         $id = $_GET['token'];       
         $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
-        , product.short_by, category.caty from product join category on product.category = category.id AND category.id = '{$id}'";
+        , product.sort_order, category.caty from product join category on product.category = category.id AND category.id = '{$id}'";
         $result =  $conn->query($sql);
         if($result->num_rows)
         {
@@ -135,7 +135,7 @@
     else {
 
         $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
-        , product.short_by, category.caty from product join category on product.category = category.id";
+        , product.sort_order, category.caty from product join category on product.category = category.id";
         $result =  $conn->query($sql);
         if($result->num_rows)
         {
@@ -203,7 +203,7 @@
                              <th >Price</th>
                              <th >Product Code</th>
                              <th >Category</th>
-                             <th>Short</th>
+                             <th>Sort Order</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -224,7 +224,7 @@
                                          <td  id="price<?=$i?>"><?=$d['price'];?></td>
                                          <td  id="code<?=$i?>"><?=$d['code'];?></td> 
                                          <td  id="cat<?=$i?>"><?=$d['caty']?></td>
-                                         <td id=""><?= $d['short_by'] ?></td>
+                                         <td id=""><?= $d['sort_order'] ?></td>
                                          
                                            <td>
                                              <form method="post">

@@ -19,7 +19,7 @@ if(isset($_GET['token']))
         $caty = $categoty_data['id'];
     }
 
-    $sql="select * from product where category='$caty' and status=1";
+    $sql="SELECT * FROM product WHERE category='$caty' AND status=1 ORDER BY sort_order ASC";
     if ($res = $conn->query($sql)) {
         if ($res->num_rows) {
             while ($row = $res->fetch_assoc()) {
