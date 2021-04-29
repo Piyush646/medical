@@ -44,6 +44,11 @@
            </a>
          </li>
          <li>
+           <a href="dynamic_pages">
+             <i class="fa fa-file-text" aria-hidden="true"></i> <span> Dynamic Pages</span>
+           </a>
+         </li>
+         <li>
             <a href="subscribers">
             <i class="fa fa-bell" aria-hidden="true"></i> <span>Subscribers</span>
             </a>
