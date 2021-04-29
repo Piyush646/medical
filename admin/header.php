@@ -16,10 +16,11 @@ if ($res->num_rows > 0) {
 
 
 
-
 user_auth($type, $subadmin);
 
 ?>
+
+
 <!DOCTYPE html>
 <html>
 

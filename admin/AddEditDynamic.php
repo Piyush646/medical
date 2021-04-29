@@ -25,7 +25,7 @@
         }/*add end*/
 
         if(isset($_POST['edit'])){
-            $id = $_POST["id"];
+            $id = $_POST["edit"];
             $title = $_POST["title"];
             $content = $conn->real_escape_string($_POST["content"]);
             $sql = "UPDATE dynamic_pages SET title = '{$title}', content = '{$content}' WHERE id = '{$id}'";
@@ -58,72 +58,9 @@
 
      }
 
-
-    
-if($pageList){ ?>
-
-
-<body>
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>Edit <?= $pageList['title'] ?>
-            </h1>
-
-        </section>
-
-        <!-- Main content -->
-        <br>
-        <section class="content">
-        <div class="box">
-              <div class="box-body">
-                        
-                        <div class="col-lg-10">
-                            <form method="POST" role="form">
-
-
-                                <input type="hidden" name="edit" value="true">
-                                <input type="hidden" name="id" value="<?= $pageList['id']?>">
-
-                            
-                                <div class="form-group">
-                                    <label for="">Page Title</label>
-                                    <input type="text" name="title" class="form-control" id="" value="<?= $pageList['title'] ?>">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Content</label>
-                                    <textarea name="content" id="edis" class="form-control" rows="3" required="required">
-                                        <?=$pageList['content']?>
-                                    </textarea>
-                                </div>
-                            
-                                
-                            
-                                <button type="submit" class="btn btn-primary mt-4">Update Page</button>
-                            </form>
-                        </div>
-            
-
-                       
-                </div>
-            <!-- /.box-footer-->
-          </div>    
-      <!-- /.box -->
-    </section>
-    <!-- /.content -->
-</div>
-
-            <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-          
-</body>      
-
-
-     <?php }
-
 ?>
+    
+
 
     <body>
         <!-- Content Wrapper. Contains page content -->
@@ -144,22 +81,33 @@ if($pageList){ ?>
                             <div class="col-lg-10">
                                 <form method="POST" role="form">
 
-
-                                    <input type="hidden" name="add" value="true">
                                 
                                     <div class="form-group">
                                         <label for="">Page Title</label>
-                                        <input type="text" name="title" class="form-control" id="" placeholder="Page Title">
+                                        <input type="text" name="title" class="form-control" id="" value="<?php if($pageList){ echo $pageList['title'];} ?>" placeholder="Page Title">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="">Content</label>
-                                        <textarea name="content" id="edis" class="form-control" rows="3" required="required"></textarea>
+                                        <textarea name="content" id="edis" class="form-control" rows="3" required="required">
+                                            <?php if($pageList){ echo $pageList['content'];} ?>
+                                        </textarea>
                                     </div>
                                 
-                                    
-                                
-                                    <button type="submit" class="btn btn-primary mt-4">Add Page</button>
+
+                                    <?php 
+
+                                        if($pageList){ ?>
+
+                                         <button type="submit" name="edit" value="<?= $pageList['id']?>" class="btn btn-primary mt-4">Update Page</button>
+
+                                        <?php } else { ?>
+
+                                        <button type="submit" name="add" value="true" class="btn btn-primary mt-4">Add Page</button>
+
+                                        <?php }
+
+                                     ?>
                                 </form>
                             </div>
                 

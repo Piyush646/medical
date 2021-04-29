@@ -20,6 +20,14 @@ if(isset($_GET['token']))
 }
 ?>
 
+<style>
+   .container .row .col-lg-10 ul>li {
+    list-style: disc inside;
+    margin-left: 18px;
+    }
+
+</style>
+
 <?php
 
     if($page_data){ ?>

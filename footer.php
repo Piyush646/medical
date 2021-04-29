@@ -41,6 +41,25 @@
                                 <li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137 nav-item"><a class="nav-link" href="#">Cookies</a></li>
                                 <li id="menu-item-125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125 nav-item"><a class="nav-link" href="#">Terms &amp; Conditions</a></li>
                                 <li id="menu-item-53" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53 nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
+
+
+                                <?php 
+
+                                $query = "SELECT * FROM dynamic_pages";
+                                $dynamic_pages = $conn->query($query);
+
+
+                                    foreach ($dynamic_pages as $pages) { ?>
+                                        
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page nav-item">
+                                       <a href="pages?token=<?=$pages['id'] ?>"><?= $pages['title'] ?></a> 
+                                    </li>                                    
+
+                                <?php }                                  
+
+                                 ?>
+
+
                             </ul>
                         </div>
                     </div>
