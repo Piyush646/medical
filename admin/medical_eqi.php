@@ -119,7 +119,7 @@
 
         $id = $_GET['token'];       
         $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
-        ,category.caty from product join category on product.category = category.id AND category.id = '{$id}'";
+        , product.short_by, category.caty from product join category on product.category = category.id AND category.id = '{$id}'";
         $result =  $conn->query($sql);
         if($result->num_rows)
         {
@@ -135,7 +135,7 @@
     else {
 
         $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
-        ,category.caty from product join category on product.category = category.id";
+        , product.short_by, category.caty from product join category on product.category = category.id";
         $result =  $conn->query($sql);
         if($result->num_rows)
         {
@@ -195,14 +195,15 @@
       
             <div class="box">
               <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example2" class="table table-responsive table-bordered table-hover">
                     <thead>
                         <tr>
                              
                              <th >Name</th>
                              <th >Price</th>
                              <th >Product Code</th>
-                             <th >Category</th> 
+                             <th >Category</th>
+                             <th>Short</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -222,7 +223,8 @@
                                          <td  id="name<?=$i?>"><?=$d['name'];?></td> 
                                          <td  id="price<?=$i?>"><?=$d['price'];?></td>
                                          <td  id="code<?=$i?>"><?=$d['code'];?></td> 
-                                         <td  id="cat<?=$i?>"><?=$d['caty']?></td> 
+                                         <td  id="cat<?=$i?>"><?=$d['caty']?></td>
+                                         <td id=""><?= $d['short_by'] ?></td>
                                          
                                            <td>
                                              <form method="post">

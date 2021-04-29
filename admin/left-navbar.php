@@ -60,11 +60,11 @@
                $query = "SELECT * FROM category";
                $result = $conn->query($query);
 
-               foreach ($result as $category) { ?>
+               foreach ($result as $category1) { ?>
                  
                  <li>
-                   <a href="medical_eqi?token=<?= $category['id']?>">
-                     <i class="fa fa-circle"></i> <?= $category['caty']?>
+                   <a href="medical_eqi?token=<?= $category1['id']?>">
+                     <i class="fa fa-circle"></i> <?= $category1['caty']?>
                    </a>
                  </li>
 

@@ -14,7 +14,8 @@
             $price=$_POST['eprice'];
             $code=$_POST['ecode'];
             $category = $_POST['category'];
-            $sql="insert into  product(name,price,dis, short_des, status,code,category) values ('$name','$price','$dis', '$short_des', 1, $code,'$category')";
+            $short_by = $_POST['short_by'];
+            $sql="insert into  product(name,price,dis, short_des, status,code,category, short_by) values ('$name','$price','$dis', '$short_des', 1, $code,'$category', '$short_by')";
             if($conn->query($sql))
                 {
                     $insert_id = $conn->insert_id;
@@ -43,7 +44,8 @@
                     $price=$_POST['eprice'];
                     $code=$_POST['ecode'];
                     $category=$_POST['category'];
-                    $sql="update product set name='$name',price='$price',dis='$dis', short_des='$short_des', code='$code',category='$category' where id='$id'";
+                    $short_by = $_POST["short_by"];
+                    $sql="update product set name='$name',price='$price',dis='$dis', short_des='$short_des', code='$code',category='$category', short_by = '$short_by' where id='$id'";
                     if($conn->query($sql))
                     {
                         if(upload_images2($_FILES,$conn,"product_img","p_id","img",$id,"projectFile"))
@@ -217,6 +219,13 @@ $sql = "SELECT * from category";
 
                           </select>
                     </div>
+
+                    <div class="col-sm-6"><br>
+                         <label >Short By :</label>
+                        <input type="text" class="form-control" id="" name="short_by" value="<?=$productList['short_by']?>">
+
+                    </div>
+
                     <div class="col-sm-12"><br>
                          <label >Name of Equipment :</label>
                         <input type="text" class="form-control" id="" name="ename" value="<?=$productList['name']?>">
