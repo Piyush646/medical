@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2021 at 12:58 PM
+-- Generation Time: Apr 29, 2021 at 07:05 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -49,6 +49,26 @@ INSERT INTO `category` (`id`, `caty`, `cat_logo`, `cat_img`) VALUES
 (8, 'Disinfectant', 'disinfectant_logo.jpeg', 'disinfectant.png'),
 (9, 'Alcohol Free Sanitizers', 'sanitizer_logo.jpeg', 'sanitizer.png'),
 (10, 'First-Aid Accessories', 'first_logo.jpeg', 'first_aid.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dynamic_pages`
+--
+
+CREATE TABLE `dynamic_pages` (
+  `id` bigint(20) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dynamic_pages`
+--
+
+INSERT INTO `dynamic_pages` (`id`, `title`, `content`) VALUES
+(5, 'My First Post', '<p>dfsdfsd</p>\r\n'),
+(6, 'My First Post', '<h1>content list</h1>\r\n\r\n<ul>\r\n	<li>Hellow there how</li>\r\n	<li>are you</li>\r\n</ul>\r\n');
 
 -- --------------------------------------------------------
 
@@ -330,6 +350,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dynamic_pages`
+--
+ALTER TABLE `dynamic_pages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `home_slider`
 --
 ALTER TABLE `home_slider`
@@ -386,6 +412,12 @@ ALTER TABLE `web_config`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `dynamic_pages`
+--
+ALTER TABLE `dynamic_pages`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `home_slider`
