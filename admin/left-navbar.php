@@ -33,11 +33,47 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
          </li>
-         <li>
+<!--          <li>
             <a href="medical_eqi">
             <i class="fa fa-list"></i> <span>Equipments</span>
             </a>
+         </li> -->
+
+         <li class="treeview">
+            <a href="medical_eqi">
+            <i class="fa fa-list"></i>
+            <span>Equipments</span>
+            <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            
+            <ul class="treeview-menu">
+               <li>
+                  <a href="medical_eqi">
+                     <i class="fa fa-circle"></i>All
+                  </a>
+               </li> 
+
+               <?php 
+
+               $query = "SELECT * FROM category";
+               $result = $conn->query($query);
+
+               foreach ($result as $category) { ?>
+                 
+                 <li>
+                   <a href="medical_eqi?token=<?= $category['id']?>">
+                     <i class="fa fa-circle"></i> <?= $category['caty']?>
+                   </a>
+                 </li>
+
+               <?php } ?>
+
+
+            </ul>
          </li>
+
          <li>
            <a href="category">
            <i class="bi bi-grid-3x3-gap-fill"></i> <span>  &nbsp;Category</span>

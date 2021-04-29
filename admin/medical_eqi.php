@@ -114,18 +114,40 @@
         }
  
     }
-        
-    $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
-    ,category.caty from product join category on product.category = category.id";
-    $result =  $conn->query($sql);
-    if($result->num_rows)
-    {
-        while($row = $result->fetch_assoc())
+
+    if(isset($_GET['token'])){
+
+        $id = $_GET['token'];       
+        $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
+        ,category.caty from product join category on product.category = category.id AND category.id = '{$id}'";
+        $result =  $conn->query($sql);
+        if($result->num_rows)
         {
-            $productList[] = $row;
+            while($row = $result->fetch_assoc())
+            {
+                $productList[] = $row;
+            }
         }
+        
+
+    }/*if get token*/
+
+    else {
+
+        $sql="select product.name,product.price,product.dis,product.status,product.id,product.code,product.new,product.short_des,product.category
+        ,category.caty from product join category on product.category = category.id";
+        $result =  $conn->query($sql);
+        if($result->num_rows)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $productList[] = $row;
+            }
+        }
+
     }
- 
+
+
     
 
     
