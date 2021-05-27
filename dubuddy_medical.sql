@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2021 at 11:53 AM
+-- Generation Time: May 27, 2021 at 10:35 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -323,6 +323,9 @@ CREATE TABLE `web_config` (
   `location` text DEFAULT NULL,
   `logo` text DEFAULT NULL,
   `message` text NOT NULL,
+  `message_email` varchar(50) NOT NULL,
+  `message_contact_link` varchar(100) NOT NULL,
+  `show_message_email` varchar(10) NOT NULL,
   `ab_line1` text NOT NULL,
   `ab_line2` text NOT NULL,
   `ab_line3` text NOT NULL,
@@ -338,8 +341,8 @@ CREATE TABLE `web_config` (
 -- Dumping data for table `web_config`
 --
 
-INSERT INTO `web_config` (`id`, `email`, `phn`, `address`, `location`, `logo`, `message`, `ab_line1`, `ab_line2`, `ab_line3`, `ab_line4`, `facebook`, `twitter`, `instagram`, `vat`, `registration_number`) VALUES
-(1, 'contact@int-trade.co.uk', 356789234, 'int-trade', 'lojxdjsjlm4y25', '1617112241_1617112044_1614707339_400dpiLogo.png', 'Int-Trade Global Ltd, a London based Healthcare consumables supplier is a preferred supplier to the NHS, GPs and Care Homes. Our Experience and Expertise ensures fully compliant, genuine and effective products are supplied in a timely fashion. As a well established supplier, you are guaranteed effective and genuine products that meet Industry Standards. \r\n\r\nFor Sales please contact on contact@int-trade.co.uk or drop inquiry at Contact-Us page.', 'Reputed Supplier to GP Clinics, Carehomes and NHS Trusts ', 'Reliable Supplier of Premium range of Incontinence Bed Pads & Mobility Consumables ', 'A Wide range of PPE Medical Grade Masks, Shoe Covers, Disposable Aprons, Mob Caps & Gloves', ' All products are manufactured in ISO 9001 & ISO 13485 Certified facilities', 'www.facebook', 'as', 'wsds', 'VATID28042021', 'RGN28042021');
+INSERT INTO `web_config` (`id`, `email`, `phn`, `address`, `location`, `logo`, `message`, `message_email`, `message_contact_link`, `show_message_email`, `ab_line1`, `ab_line2`, `ab_line3`, `ab_line4`, `facebook`, `twitter`, `instagram`, `vat`, `registration_number`) VALUES
+(1, 'contact@int-trade.co.uk', 356789234, 'int-trade', 'lojxdjsjlm4y25', '1617112241_1617112044_1614707339_400dpiLogo.png', 'Int-Trade Global Ltd, a London based Healthcare consumables supplier is a preferred supplier to the NHS, GPs and Care Homes. Our Experience and Expertise ensures fully compliant, genuine and effective products are supplied in a timely fashion. As a well established supplier, you are guaranteed effective and genuine products that meet Industry Standards. ', 'shivamkumar3@gmail.com', 'contact', 'false', 'Reputed Supplier to GP Clinics, Carehomes and NHS Trusts ', 'Reliable Supplier of Premium range of Incontinence Bed Pads & Mobility Consumables ', 'A Wide range of PPE Medical Grade Masks, Shoe Covers, Disposable Aprons, Mob Caps & Gloves', ' All products are manufactured in ISO 9001 & ISO 13485 Certified facilities', 'www.facebook', 'as', 'wsds', 'VATID28042021', 'RGN28042021');
 
 --
 -- Indexes for dumped tables

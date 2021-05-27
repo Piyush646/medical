@@ -9,6 +9,8 @@
         $ad=$conn->real_escape_string($_POST['address']);
         $loc=$conn->real_escape_string($_POST['location']);
         $msg = $conn->real_escape_string($_POST['message']);
+        $message_email = $conn->real_escape_string($_POST['message_email']);
+        $message_contact_link = $conn->real_escape_string($_POST['message_contact_link']);
         $ab_line1=$conn->real_escape_string($_POST['ab_line1']);
         $ab_line2=$conn->real_escape_string($_POST['ab_line2']);
         $ab_line3=$conn->real_escape_string($_POST['ab_line3']);
@@ -21,12 +23,12 @@
         $img=imimage($_FILES);
         if($img!="err")
         {
-        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$img',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta', vat = '$vat', registration_number = '$registration_number'"; 
+        $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',logo='$img',message='$msg', message_email = '$message_email', message_contact_link = '$message_contact_link' ,ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta', vat = '$vat', registration_number = '$registration_number'"; 
          
         }
         else
         {
-            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg',ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta', vat = '$vat', registration_number = '$registration_number'";
+            $sql="update web_config set email='$email',phn='$phn',address='$ad',location='$loc',message='$msg', message_email='$message_email', message_contact_link = '$message_contact_link' ,ab_line1='$ab_line1',ab_line2='$ab_line2',ab_line3='$ab_line3',ab_line4='$ab_line4',facebook='$facebook',twitter='$twitter',instagram='$insta', vat = '$vat', registration_number = '$registration_number'";
         } 
         if($conn->query($sql))
         {
@@ -43,6 +45,21 @@
         if($res->num_rows)
         {
              $about=$res->fetch_assoc();
+        }
+
+    }
+
+    if(isset($_GET['show_message_email'])){
+        $show_message_email = $_GET['show_message_email'];
+        $sql = "UPDATE web_config set show_message_email = '{$show_message_email}'";
+
+        if($conn->query($sql))
+        {
+            header("location: about.php");   
+        }
+        else
+        {
+            $errorMember=$conn->error;
         }
 
     }
@@ -131,6 +148,40 @@
                             <textarea style="width: 100%;height:120px;resize:none"
                                 name="message"><?=$about['message']?></textarea>
                         </div>
+
+
+                        <div class="col-sm-12"><br>
+                            <?php
+                             if($about['show_message_email'] == "true"){?>
+
+
+                                <a href="about.php?show_message_email=false" class="btn btn-primary">Remove Email</a>
+
+                            <?php } else {?>
+
+                                <a href="about.php?show_message_email=true" class="btn btn-primary">Show Email</a>
+
+                            <?php } ?>
+                        </div>  
+
+                       <?php 
+
+                        if($about['show_message_email'] == "true"){?>
+
+                            <div class="col-sm-6"><br>
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="message_email" value="<?=$about['message_email']?>">
+                            </div>
+
+
+                            <div class="col-sm-6"><br>
+                                <label for="">Contact Link</label>
+                                <input type="text" name="message_contact_link" class="form-control" required="required"  title="" value="<?= $about['message_contact_link'] ?>">
+                            </div>
+
+                        <?php } ?>
+
+
                         <div class="col-sm-12"><br>
                             <label>About Line 1:</label><br>
                             <textarea style="width: 100%;height:120px;resize:none"

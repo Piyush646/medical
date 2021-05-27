@@ -41,8 +41,16 @@ if($res=$conn->query($sql))
             <div class="col-lg-7">
                 <div class="cv-about-content">
                 <h2>About Us</h2>
-                    <p><?= html_entity_decode($msg['message'])?>.</p>
+                    <p><?= html_entity_decode($msg['message'])?>
                    
+                   <?php 
+
+                    if($msg['show_message_email'] == "true"){?>
+                        For Sales please contact on
+                       <a href="mailto:<?=$msg['message_email']?>"><?=$msg['message_email']?></a> or drop inquiry at <a href="<?= $msg['message_contact_link'] ?>">Contact-Us</a> page.
+                        
+                    
+                    <?php } ?>
                    
                  
                 </div>
